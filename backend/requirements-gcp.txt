@@ -1,0 +1,148 @@
+# SignaAI Backend - GCP Specific Requirements
+# Additional packages required for Google Cloud Platform integration
+
+# Core GCP Libraries
+google-cloud-core==2.4.1
+google-auth==2.27.0
+google-auth-oauthlib==1.2.0
+google-auth-httplib2==0.2.0
+
+# Google Cloud Storage
+google-cloud-storage==2.10.0
+
+# Google Cloud SQL
+google-cloud-sql-connector[pg8000]==1.5.0
+cloud-sql-python-connector[pg8000]==1.5.0
+
+# BigQuery for Analytics
+google-cloud-bigquery==3.13.0
+google-cloud-bigquery-storage==2.22.0
+pandas-gbq==0.19.2
+
+# Pub/Sub for Message Queuing
+google-cloud-pubsub==2.18.4
+
+# AI and Machine Learning
+google-cloud-aiplatform==1.38.1
+google-generativeai==0.3.2
+google-ai-generativelanguage==0.4.0
+
+# Document AI for Advanced Document Processing
+google-cloud-documentai==2.20.1
+
+# Translation API for Multi-language Support
+google-cloud-translate==3.12.1
+
+# Monitoring and Logging
+google-cloud-monitoring==2.16.0
+google-cloud-logging==3.8.0
+google-cloud-trace==1.11.1
+google-cloud-error-reporting==1.9.1
+
+# Secret Manager for Configuration
+google-cloud-secret-manager==2.17.0
+
+# Cloud Functions (if needed)
+google-cloud-functions==1.13.3
+
+# Firestore for Real-time Data
+google-cloud-firestore==2.13.1
+
+# Identity and Access Management
+google-cloud-iam==2.12.2
+
+# Key Management Service
+google-cloud-kms==2.19.2
+
+# Resource Manager
+google-cloud-resource-manager==1.10.4
+
+# Additional AI/ML Libraries for Gemini Integration
+google-api-python-client==2.108.0
+google-cloud-language==2.11.1
+google-cloud-vision==3.4.5
+
+# Performance and Monitoring
+opencensus-ext-google-cloud-trace==1.1.13
+opencensus-ext-stackdriver==0.8.0
+google-cloud-profiler==4.0.0
+
+# Development and Testing
+google-cloud-testutils==1.3.3
+
+# Production Server (Gunicorn with async workers)
+gunicorn==21.2.0
+uvicorn[standard]==0.24.0
+
+# Async HTTP Client for GCP APIs
+aiohttp==3.9.1
+httpx==0.25.2
+
+# Data Processing
+pandas==2.1.4
+numpy==1.25.2
+pyarrow==14.0.1
+
+# Image Processing (for document analysis)
+Pillow==10.1.0
+opencv-python-headless==4.8.1.78
+
+# PDF Processing (enhanced for Gemini AI)
+PyMuPDF==1.23.8
+pdf2image==1.16.3
+
+# Text Processing and NLP
+langdetect==1.0.9
+spacy==3.7.2
+transformers==4.36.2
+
+# Caching with GCP Memorystore compatibility
+redis[hiredis]==5.0.1
+
+# Configuration Management
+python-decouple==3.8
+dynaconf==3.2.4
+
+# Security and Encryption
+cryptography==41.0.8
+jwcrypto==1.5.0
+
+# Email Integration (SendGrid on GCP)
+sendgrid==6.10.0
+
+# Phone/SMS Integration (Twilio on GCP)  
+twilio==8.10.2
+
+# WebSocket Support for Real-time Features
+websockets==12.0
+python-socketio==5.10.0
+
+# Rate Limiting
+slowapi==0.1.9
+
+# Background Tasks
+celery==5.3.4
+redis-py-cluster==2.1.3
+
+# Data Validation
+marshmallow==3.20.1
+cerberus==1.3.5
+
+# Timezone Support
+pytz==2023.3
+python-dateutil==2.8.2
+
+# Structured Logging for Production
+python-json-logger==2.0.7
+
+# Development Tools (for local development)
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+black==23.11.0
+isort==5.12.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Documentation
+sphinx==7.2.6
+sphinx-rtd-theme==1.3.0

@@ -1,0 +1,11 @@
+{
+  "name": "signaai-tests",
+  "version": "1.0.0",
+  "description": "Test suite for SignaAI",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "puppeteer": "^23.4.0"
+  }
+}

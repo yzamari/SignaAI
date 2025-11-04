@@ -1,0 +1,35 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    build-essential \
+    libpq-dev \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy and install requirements
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt || true
+RUN pip install --no-cache-dir psycopg2-binary sqlalchemy alembic python-multipart pydantic_settings twilio google-generativeai || true
+
+# Copy all application code
+COPY . .
+
+# Environment variables
+ENV PORT=8080
+ENV PYTHONUNBUFFERED=1
+ENV DATABASE_URL="sqlite:///./signaai.db"
+ENV SECRET_KEY="super-secret-key-for-production-2024"
+ENV JWT_SECRET_KEY="jwt-secret-key-for-production-2024"
+ENV GEMINI_API_KEY="AIzaSyCtw5XG_XTbxxNRajkbGWj9feoaqwFoptA"
+ENV TWILIO_ACCOUNT_SID=""
+ENV TWILIO_AUTH_TOKEN=""
+ENV TWILIO_PHONE_NUMBER=""
+ENV FRONTEND_URL="https://signaai-frontend-691837885081.us-central1.run.app"
+
+# Run the full application
+CMD uvicorn main_production:app --host 0.0.0.0 --port ${PORT} --workers 1

@@ -1,0 +1,182 @@
+version: '3.8'
+
+services:
+  # API Gateway
+  api-gateway:
+    build:
+      context: ./services/api-gateway
+      dockerfile: Dockerfile
+    container_name: signaai-api-gateway
+    ports:
+      - "5100:5100"
+    environment:
+      - NODE_ENV=development
+      - GATEWAY_PORT=5100
+      - CORS_ORIGINS=http://localhost:3000
+    depends_on:
+      - auth-service
+      - document-service
+      - signature-service
+      - workflow-service
+      - notification-service
+    networks:
+      - signaai-network
+    restart: unless-stopped
+
+  # Authentication Service
+  auth-service:
+    build:
+      context: ./services/auth-service
+      dockerfile: Dockerfile
+    container_name: signaai-auth-service
+    ports:
+      - "5001:5001"
+    environment:
+      - NODE_ENV=development
+      - PORT=5001
+      - JWT_ACCESS_SECRET=${JWT_ACCESS_SECRET:-access-secret}
+      - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET:-refresh-secret}
+      - DATABASE_URL=/app/data/auth.db
+    volumes:
+      - auth-data:/app/data
+    networks:
+      - signaai-network
+    restart: unless-stopped
+
+  # Document Service
+  document-service:
+    build:
+      context: ./services/document-service
+      dockerfile: Dockerfile
+    container_name: signaai-document-service
+    ports:
+      - "5002:5002"
+    environment:
+      - NODE_ENV=development
+      - PORT=5002
+      - DATABASE_URL=/app/data/documents.db
+      - UPLOAD_DIR=/app/uploads
+    volumes:
+      - document-data:/app/data
+      - document-uploads:/app/uploads
+    networks:
+      - signaai-network
+    restart: unless-stopped
+
+  # Signature Service
+  signature-service:
+    build:
+      context: ./services/signature-service
+      dockerfile: Dockerfile
+    container_name: signaai-signature-service
+    ports:
+      - "5003:5003"
+    environment:
+      - NODE_ENV=development
+      - PORT=5003
+      - DATABASE_URL=/app/data/signatures.db
+    volumes:
+      - signature-data:/app/data
+    networks:
+      - signaai-network
+    restart: unless-stopped
+
+  # Workflow Service
+  workflow-service:
+    build:
+      context: ./services/workflow-service
+      dockerfile: Dockerfile
+    container_name: signaai-workflow-service
+    ports:
+      - "5005:5005"
+    environment:
+      - NODE_ENV=development
+      - PORT=5005
+      - DATABASE_URL=/app/data/workflows.db
+    volumes:
+      - workflow-data:/app/data
+    networks:
+      - signaai-network
+    restart: unless-stopped
+
+  # Notification Service
+  notification-service:
+    build:
+      context: ./services/notification-service
+      dockerfile: Dockerfile
+    container_name: signaai-notification-service
+    ports:
+      - "5004:5004"
+    environment:
+      - NODE_ENV=development
+      - PORT=5004
+      - DATABASE_URL=/app/data/notifications.db
+      - SMTP_HOST=${SMTP_HOST:-smtp.gmail.com}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+    volumes:
+      - notification-data:/app/data
+    networks:
+      - signaai-network
+    restart: unless-stopped
+
+  # Redis for caching and session management
+  redis:
+    image: redis:7-alpine
+    container_name: signaai-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+    networks:
+      - signaai-network
+    restart: unless-stopped
+
+  # RabbitMQ for message queue
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: signaai-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER:-admin}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASS:-admin}
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    networks:
+      - signaai-network
+    restart: unless-stopped
+
+  # PostgreSQL database (optional - for production)
+  postgres:
+    image: postgres:15-alpine
+    container_name: signaai-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-signaai}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-signaai}
+      - POSTGRES_DB=${POSTGRES_DB:-signaai}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - signaai-network
+    restart: unless-stopped
+
+networks:
+  signaai-network:
+    driver: bridge
+
+volumes:
+  auth-data:
+  document-data:
+  document-uploads:
+  signature-data:
+  workflow-data:
+  notification-data:
+  redis-data:
+  rabbitmq-data:
+  postgres-data:

@@ -1,0 +1,96 @@
+# SignaAI Backend - GCP Optimized Dockerfile
+# Multi-stage build optimized for Google Cloud Run deployment
+
+# =============================================================================
+# Build Stage
+# =============================================================================
+FROM python:3.11-slim as builder
+
+# Set build arguments
+ARG BUILD_ENV=production
+ARG CLOUD_PROVIDER=gcp
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gcc \
+    g++ \
+    libffi-dev \
+    libssl-dev \
+    libpq-dev \
+    libmagic1 \
+    libmagic-dev \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create virtual environment
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Copy requirements and install dependencies
+COPY requirements.txt requirements-gcp.txt ./
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir -r requirements-gcp.txt
+
+# =============================================================================
+# Runtime Stage  
+# =============================================================================
+FROM python:3.11-slim as runtime
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app
+ENV CLOUD_PROVIDER=gcp
+ENV PORT=8000
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y \
+    libpq5 \
+    libmagic1 \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create non-root user for security
+RUN groupadd -r signa && useradd -r -g signa signa
+
+# Copy virtual environment from builder stage
+COPY --from=builder /opt/venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Set working directory
+WORKDIR /app
+
+# Copy application code
+COPY --chown=signa:signa . .
+
+# Create necessary directories
+RUN mkdir -p /app/logs /app/tmp /app/credentials && \
+    chown -R signa:signa /app
+
+# Install Google Cloud SDK (for gcloud CLI if needed)
+RUN curl https://sdk.cloud.google.com | bash
+ENV PATH="/root/google-cloud-sdk/bin:$PATH"
+
+# Switch to non-root user
+USER signa
+
+# Health check endpoint
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:${PORT}/health || exit 1
+
+# Expose port
+EXPOSE $PORT
+
+# Production startup command
+CMD exec gunicorn --bind :$PORT --workers 4 --worker-class uvicorn.workers.UvicornWorker --timeout 120 main:app
+
+# =============================================================================
+# GCP Cloud Run Optimization Labels
+# =============================================================================
+LABEL com.google.cloud.run.service="signa-ai-backend"
+LABEL com.google.cloud.run.region="us-central1"
+LABEL version="1.0.0"
+LABEL description="SignaAI Backend API optimized for Google Cloud Platform"

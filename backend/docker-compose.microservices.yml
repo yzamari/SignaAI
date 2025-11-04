@@ -1,0 +1,391 @@
+version: '3.8'
+
+services:
+  # API Gateway - Main entry point for all services
+  api-gateway:
+    build:
+      context: ./services/api-gateway
+      dockerfile: Dockerfile
+    container_name: signaai-api-gateway
+    ports:
+      - "5100:5100"
+    environment:
+      NODE_ENV: production
+      PORT: 5100
+      AUTH_SERVICE_URL: http://auth-service:5001
+      DOCUMENT_SERVICE_URL: http://document-service:5002
+      SIGNATURE_SERVICE_URL: http://signature-service:5003
+      NOTIFICATION_SERVICE_URL: http://notification-service:5004
+      WORKFLOW_SERVICE_URL: http://workflow-service:5005
+      REDIS_URL: redis://redis:6379
+      SERVICE_DISCOVERY_URL: http://service-registry:5010
+    depends_on:
+      - redis
+      - service-registry
+      - auth-service
+      - document-service
+      - signature-service
+      - notification-service
+      - workflow-service
+    networks:
+      - signaai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5100/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Service Registry for service discovery
+  service-registry:
+    build:
+      context: ./shared/service-registry
+      dockerfile: Dockerfile
+    container_name: signaai-service-registry
+    ports:
+      - "5010:5010"
+    environment:
+      NODE_ENV: production
+      PORT: 5010
+    networks:
+      - signaai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5010/health"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+
+  # Authentication Service
+  auth-service:
+    build:
+      context: ./services/auth-service
+      dockerfile: Dockerfile
+    container_name: signaai-auth-service
+    ports:
+      - "5001:5001"
+    environment:
+      NODE_ENV: production
+      PORT: 5001
+      DATABASE_URL: postgres://signaai:password@postgres:5432/auth_db
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: 7d
+      SERVICE_REGISTRY_URL: http://service-registry:5010
+    depends_on:
+      - postgres
+      - redis
+      - service-registry
+    networks:
+      - signaai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Document Service
+  document-service:
+    build:
+      context: ./services/document-service
+      dockerfile: Dockerfile
+    container_name: signaai-document-service
+    ports:
+      - "5002:5002"
+    environment:
+      NODE_ENV: production
+      PORT: 5002
+      DATABASE_URL: postgres://signaai:password@postgres:5432/document_db
+      STORAGE_TYPE: s3
+      S3_BUCKET: ${S3_BUCKET}
+      S3_REGION: ${S3_REGION}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      OCR_SERVICE_URL: http://ocr-service:8002
+      REDIS_URL: redis://redis:6379
+      SERVICE_REGISTRY_URL: http://service-registry:5010
+    depends_on:
+      - postgres
+      - redis
+      - ocr-service
+      - service-registry
+    volumes:
+      - document-storage:/app/storage
+    networks:
+      - signaai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Signature Service
+  signature-service:
+    build:
+      context: ./services/signature-service
+      dockerfile: Dockerfile
+    container_name: signaai-signature-service
+    ports:
+      - "5003:5003"
+    environment:
+      NODE_ENV: production
+      PORT: 5003
+      DATABASE_URL: postgres://signaai:password@postgres:5432/signature_db
+      REDIS_URL: redis://redis:6379
+      CERTIFICATE_STORE_URL: ${CERTIFICATE_STORE_URL}
+      SERVICE_REGISTRY_URL: http://service-registry:5010
+    depends_on:
+      - postgres
+      - redis
+      - service-registry
+    networks:
+      - signaai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5003/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Notification Service
+  notification-service:
+    build:
+      context: ./services/notification-service
+      dockerfile: Dockerfile
+    container_name: signaai-notification-service
+    ports:
+      - "5004:5004"
+    environment:
+      NODE_ENV: production
+      PORT: 5004
+      DATABASE_URL: postgres://signaai:password@postgres:5432/notification_db
+      REDIS_URL: redis://redis:6379
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+      TWILIO_ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}
+      TWILIO_AUTH_TOKEN: ${TWILIO_AUTH_TOKEN}
+      TWILIO_PHONE_NUMBER: ${TWILIO_PHONE_NUMBER}
+      FCM_SERVER_KEY: ${FCM_SERVER_KEY}
+      APNS_KEY_ID: ${APNS_KEY_ID}
+      APNS_TEAM_ID: ${APNS_TEAM_ID}
+      SERVICE_REGISTRY_URL: http://service-registry:5010
+    depends_on:
+      - postgres
+      - redis
+      - service-registry
+    networks:
+      - signaai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5004/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Workflow Service
+  workflow-service:
+    build:
+      context: ./services/workflow-service
+      dockerfile: Dockerfile
+    container_name: signaai-workflow-service
+    ports:
+      - "5005:5005"
+    environment:
+      NODE_ENV: production
+      PORT: 5005
+      DATABASE_URL: postgres://signaai:password@postgres:5432/workflow_db
+      REDIS_URL: redis://redis:6379
+      AUTH_SERVICE_URL: http://auth-service:5001
+      DOCUMENT_SERVICE_URL: http://document-service:5002
+      SIGNATURE_SERVICE_URL: http://signature-service:5003
+      NOTIFICATION_SERVICE_URL: http://notification-service:5004
+      SERVICE_REGISTRY_URL: http://service-registry:5010
+    depends_on:
+      - postgres
+      - redis
+      - auth-service
+      - document-service
+      - signature-service
+      - notification-service
+      - service-registry
+    networks:
+      - signaai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5005/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # OCR Service (existing)
+  ocr-service:
+    build:
+      context: ../
+      dockerfile: Dockerfile.ocr
+    container_name: signaai-ocr-service
+    ports:
+      - "8002:8002"
+    environment:
+      PYTHONUNBUFFERED: 1
+      PORT: 8002
+    volumes:
+      - ocr-temp:/tmp/ocr
+    networks:
+      - signaai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: signaai-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: signaai
+      POSTGRES_PASSWORD: password
+      POSTGRES_MULTIPLE_DATABASES: auth_db,document_db,signature_db,notification_db,workflow_db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./scripts/init-postgres.sh:/docker-entrypoint-initdb.d/init-postgres.sh
+    networks:
+      - signaai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U signaai"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache & Message Broker
+  redis:
+    image: redis:7-alpine
+    container_name: signaai-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-password}
+    volumes:
+      - redis-data:/data
+    networks:
+      - signaai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # RabbitMQ Message Queue (optional for async processing)
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: signaai-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: signaai
+      RABBITMQ_DEFAULT_PASS: password
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    networks:
+      - signaai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Prometheus for monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: signaai-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.enable-lifecycle'
+    networks:
+      - signaai-network
+    restart: unless-stopped
+
+  # Grafana for visualization
+  grafana:
+    image: grafana/grafana:latest
+    container_name: signaai-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-admin}
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    depends_on:
+      - prometheus
+    networks:
+      - signaai-network
+    restart: unless-stopped
+
+  # Jaeger for distributed tracing
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: signaai-jaeger
+    ports:
+      - "5775:5775/udp"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"
+      - "14268:14268"
+      - "14250:14250"
+    environment:
+      COLLECTOR_ZIPKIN_HOST_PORT: 9411
+    networks:
+      - signaai-network
+    restart: unless-stopped
+
+  # Nginx Load Balancer (optional)
+  nginx:
+    image: nginx:alpine
+    container_name: signaai-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - api-gateway
+    networks:
+      - signaai-network
+    restart: unless-stopped
+
+networks:
+  signaai-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  postgres-data:
+  redis-data:
+  rabbitmq-data:
+  prometheus-data:
+  grafana-data:
+  document-storage:
+  ocr-temp:

@@ -1,0 +1,15 @@
+{
+  "timestamp": "20250927_203112",
+  "document": "heskem.pdf",
+  "total_pages": 5,
+  "total_fields": 34,
+  "processing_time_ms": 5350.771188735962,
+  "method": "OCR-based (OpenCV + Tesseract)",
+  "fields_by_page": {
+    "page_1": 14,
+    "page_2": 13,
+    "page_3": 1,
+    "page_4": 2,
+    "page_5": 4
+  }
+}

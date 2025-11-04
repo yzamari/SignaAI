@@ -1,0 +1,9 @@
+runtime: python311
+
+entrypoint: uvicorn main_deploy:app --host 0.0.0.0 --port $PORT
+
+env_variables:
+  GEMINI_API_KEY: "AIzaSyCtw5XG_XTbxxNRajkbGWj9feoaqwFoptA"
+  TWILIO_ACCOUNT_SID: ""
+  TWILIO_AUTH_TOKEN: ""
+  TWILIO_PHONE_NUMBER: ""

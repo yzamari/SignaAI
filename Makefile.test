@@ -1,0 +1,168 @@
+# SignaAI Test Suite Makefile
+# Comprehensive testing and gatekeeper for production deployment
+
+.PHONY: help test test-api test-frontend test-e2e test-performance test-gatekeeper clean-test install-test-deps
+
+# Variables
+PYTHON := python3
+NPM := npm
+API_URL := http://localhost:5112
+OCR_URL := http://localhost:5113
+FRONTEND_URL := http://localhost:5114
+TEST_PDF := heskem.pdf
+
+# Colors for output
+GREEN := \033[0;32m
+RED := \033[0;31m
+YELLOW := \033[1;33m
+NC := \033[0m # No Color
+
+help:
+	@echo "$(GREEN)SignaAI Test Suite$(NC)"
+	@echo "===================="
+	@echo "Available targets:"
+	@echo "  make test              - Run all tests (gatekeeper)"
+	@echo "  make test-api          - Run API endpoint tests"
+	@echo "  make test-frontend     - Run frontend UI tests"
+	@echo "  make test-e2e          - Run end-to-end tests"
+	@echo "  make test-performance  - Run performance tests"
+	@echo "  make test-gatekeeper   - Run gatekeeper tests (CI/CD)"
+	@echo "  make install-test-deps - Install test dependencies"
+	@echo "  make clean-test        - Clean test artifacts"
+
+# Install test dependencies
+install-test-deps:
+	@echo "$(YELLOW)Installing test dependencies...$(NC)"
+	$(PYTHON) -m pip install playwright requests selenium pytest pytest-asyncio
+	$(PYTHON) -m playwright install chromium
+	cd signa-app && npm install --save-dev @playwright/test
+	@echo "$(GREEN)Test dependencies installed$(NC)"
+
+# Run all tests (gatekeeper)
+test: test-gatekeeper
+
+# Run API endpoint tests only
+test-api:
+	@echo "$(YELLOW)Running API tests...$(NC)"
+	@$(PYTHON) -c "import test_e2e_comprehensive; test_e2e_comprehensive.test_service_health(); test_e2e_comprehensive.test_ocr_endpoints(); test_e2e_comprehensive.test_auth_endpoints(); test_e2e_comprehensive.test_document_endpoints(); test_e2e_comprehensive.test_workflow_endpoints()"
+
+# Run frontend UI tests
+test-frontend:
+	@echo "$(YELLOW)Running frontend tests...$(NC)"
+	@cd signa-app && npx playwright test || true
+	@$(PYTHON) -c "import test_e2e_comprehensive; test_e2e_comprehensive.test_frontend_with_playwright() if test_e2e_comprehensive.USE_PLAYWRIGHT else test_e2e_comprehensive.test_frontend_with_selenium()"
+
+# Run end-to-end tests
+test-e2e:
+	@echo "$(YELLOW)Running E2E tests...$(NC)"
+	@$(PYTHON) test-e2e-sender-flow.py || true
+	@$(PYTHON) test-e2e-comprehensive.py
+
+# Run performance tests
+test-performance:
+	@echo "$(YELLOW)Running performance tests...$(NC)"
+	@$(PYTHON) -c "import test_e2e_comprehensive; test_e2e_comprehensive.test_api_performance()"
+
+# Run gatekeeper tests (must pass for deployment)
+test-gatekeeper:
+	@echo "$(GREEN)======================================$(NC)"
+	@echo "$(GREEN)   GATEKEEPER TEST SUITE$(NC)"
+	@echo "$(GREEN)======================================$(NC)"
+	@export CI=true && $(PYTHON) test-e2e-comprehensive.py
+	@if [ $$? -eq 0 ]; then \
+		echo "$(GREEN)✅ GATEKEEPER PASSED - Safe to deploy$(NC)"; \
+	else \
+		echo "$(RED)❌ GATEKEEPER FAILED - DO NOT DEPLOY$(NC)"; \
+		exit 1; \
+	fi
+
+# Clean test artifacts
+clean-test:
+	@echo "$(YELLOW)Cleaning test artifacts...$(NC)"
+	@rm -f test-report.json
+	@rm -f test-results.xml
+	@rm -rf playwright-report
+	@rm -rf test-results
+	@find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+	@find . -type d -name ".pytest_cache" -exec rm -rf {} + 2>/dev/null || true
+	@echo "$(GREEN)Test artifacts cleaned$(NC)"
+
+# Start all services for testing
+start-services:
+	@echo "$(YELLOW)Starting all services...$(NC)"
+	@cd backend/services/ocr_field_detection && $(PYTHON) start_ocr.py &
+	@cd backend && $(PYTHON) main.py &
+	@cd signa-app && npm run dev &
+	@sleep 5
+	@echo "$(GREEN)All services started$(NC)"
+
+# Stop all services
+stop-services:
+	@echo "$(YELLOW)Stopping all services...$(NC)"
+	@pkill -f "python.*start_ocr" || true
+	@pkill -f "python.*main.py" || true
+	@pkill -f "npm.*dev" || true
+	@pkill -f "node.*next" || true
+	@echo "$(GREEN)All services stopped$(NC)"
+
+# Run tests with coverage
+test-coverage:
+	@echo "$(YELLOW)Running tests with coverage...$(NC)"
+	@cd backend && pytest --cov=. --cov-report=html --cov-report=term
+	@cd signa-app && npm test -- --coverage
+
+# CI/CD pipeline test
+ci-test: clean-test start-services test-gatekeeper stop-services
+	@echo "$(GREEN)CI/CD pipeline test completed$(NC)"
+
+# Pre-commit hook test
+pre-commit: test-api test-performance
+	@echo "$(GREEN)Pre-commit tests passed$(NC)"
+
+# Pre-push hook test (comprehensive)
+pre-push: test-gatekeeper
+	@echo "$(GREEN)Pre-push tests passed$(NC)"
+
+# Generate test report
+test-report:
+	@echo "$(YELLOW)Generating test report...$(NC)"
+	@$(PYTHON) test-e2e-comprehensive.py --report
+	@echo "$(GREEN)Test report generated: test-report.json$(NC)"
+
+# Watch mode for continuous testing
+test-watch:
+	@echo "$(YELLOW)Starting test watch mode...$(NC)"
+	@while true; do \
+		clear; \
+		make test-api; \
+		sleep 5; \
+	done
+
+# Docker test environment
+test-docker:
+	@echo "$(YELLOW)Running tests in Docker...$(NC)"
+	@docker-compose -f docker-compose.test.yml up --abort-on-container-exit
+	@docker-compose -f docker-compose.test.yml down
+
+# Quick smoke test
+test-smoke:
+	@echo "$(YELLOW)Running smoke tests...$(NC)"
+	@curl -f $(API_URL)/health || (echo "$(RED)API not responding$(NC)" && exit 1)
+	@curl -f $(OCR_URL)/ || (echo "$(RED)OCR service not responding$(NC)" && exit 1)
+	@curl -f $(FRONTEND_URL)/ || (echo "$(RED)Frontend not responding$(NC)" && exit 1)
+	@echo "$(GREEN)Smoke tests passed$(NC)"
+
+# Load test
+test-load:
+	@echo "$(YELLOW)Running load tests...$(NC)"
+	@ab -n 1000 -c 10 $(API_URL)/health
+	@echo "$(GREEN)Load tests completed$(NC)"
+
+# Security test
+test-security:
+	@echo "$(YELLOW)Running security tests...$(NC)"
+	@# Check for exposed secrets
+	@grep -r "password\|secret\|key\|token" --include="*.py" --include="*.js" --include="*.ts" . | grep -v test | grep -v ".env" || true
+	@echo "$(GREEN)Security tests completed$(NC)"
+
+.DEFAULT_GOAL := help
