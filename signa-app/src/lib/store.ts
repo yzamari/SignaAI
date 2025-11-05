@@ -18,6 +18,14 @@ export interface User {
   role?: string;
 }
 
+export interface Notification {
+  id: string;
+  type: 'success' | 'error' | 'warning' | 'info';
+  title: string;
+  message: string;
+  timestamp: Date;
+}
+
 interface AppState {
   // User state
   user: User | null;
@@ -27,6 +35,9 @@ interface AppState {
   // Document state
   documents: Document[];
   currentDocument: Document | null;
+
+  // Notification state
+  notifications: Notification[];
 
   // UI state
   isLoading: boolean;
@@ -40,9 +51,13 @@ interface AppState {
   logout: () => void;
 
   setDocuments: (documents: Document[]) => void;
-  addDocument: (document: Document) => void;
+  addDocument: (document: any) => void;
   updateDocument: (id: string, updates: Partial<Document>) => void;
   setCurrentDocument: (document: Document | null) => void;
+
+  addNotification: (notification: Notification) => void;
+  removeNotification: (id: string) => void;
+  clearNotifications: () => void;
 
   setLoading: (isLoading: boolean) => void;
   setError: (error: string | null) => void;
@@ -57,6 +72,7 @@ export const useStore = create<AppState>()(
       isAuthenticated: false,
       documents: [],
       currentDocument: null,
+      notifications: [],
       isLoading: false,
       error: null,
 
@@ -98,6 +114,17 @@ export const useStore = create<AppState>()(
       })),
 
       setCurrentDocument: (document) => set({ currentDocument: document }),
+
+      // Notification actions
+      addNotification: (notification) => set((state) => ({
+        notifications: [notification, ...state.notifications]
+      })),
+
+      removeNotification: (id) => set((state) => ({
+        notifications: state.notifications.filter(n => n.id !== id)
+      })),
+
+      clearNotifications: () => set({ notifications: [] }),
 
       // UI actions
       setLoading: (isLoading) => set({ isLoading }),
