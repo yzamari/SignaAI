@@ -1,0 +1,62 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - generic [active]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - navigation [ref=e6]:
+            - button "previous" [disabled] [ref=e7]:
+              - img "previous" [ref=e8]
+            - generic [ref=e10]:
+              - generic [ref=e11]: 1/
+              - generic [ref=e12]: "1"
+            - button "next" [disabled] [ref=e13]:
+              - img "next" [ref=e14]
+          - img
+        - generic [ref=e16]:
+          - link "Next.js 15.5.3 (outdated) Webpack" [ref=e17] [cursor=pointer]:
+            - /url: https://nextjs.org/docs/messages/version-staleness
+            - img [ref=e18] [cursor=pointer]
+            - generic "An outdated version detected (latest is 16.0.1), upgrade is highly recommended!" [ref=e20] [cursor=pointer]: Next.js 15.5.3 (outdated)
+            - generic [ref=e21] [cursor=pointer]: Webpack
+          - img
+      - dialog "Build Error" [ref=e23]:
+        - generic [ref=e26]:
+          - generic [ref=e27]:
+            - generic [ref=e28]:
+              - generic [ref=e30]: Build Error
+              - generic [ref=e31]:
+                - button "Copy Error Info" [ref=e32] [cursor=pointer]:
+                  - img [ref=e33] [cursor=pointer]
+                - link "Go to related documentation" [ref=e35] [cursor=pointer]:
+                  - /url: https://nextjs.org/docs/messages/module-not-found
+                  - img [ref=e36] [cursor=pointer]
+                - link "Learn more about enabling Node.js inspector for server code with Chrome DevTools" [ref=e38] [cursor=pointer]:
+                  - /url: https://nextjs.org/docs/app/building-your-application/configuring/debugging#server-side-code
+                  - img [ref=e39] [cursor=pointer]
+            - paragraph [ref=e48]: "Module not found: Can't resolve '@/lib/store'"
+          - generic [ref=e50]:
+            - generic [ref=e52]:
+              - img [ref=e54]
+              - generic [ref=e57]: ./src/app/login/page.tsx (8:1)
+              - button "Open in editor" [ref=e58] [cursor=pointer]:
+                - img [ref=e60] [cursor=pointer]
+            - generic [ref=e64]:
+              - text: "Module not found: Can't resolve '@/lib/store' 6 | import { motion } from 'framer-motion'; 7 | import { Mail, Lock, ArrowRight, Eye, EyeOff } from 'lucide-react'; > 8 | import { useStore } from '@/lib/store'; | ^ 9 | import api from '@/lib/api'; 10 | 11 | export default function LoginPage() {"
+              - link "https://nextjs.org/docs/messages/module-not-found" [ref=e65] [cursor=pointer]:
+                - /url: https://nextjs.org/docs/messages/module-not-found
+        - generic [ref=e66]:
+          - generic [ref=e67]: "1"
+          - generic [ref=e68]: "2"
+    - generic [ref=e73] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=e74] [cursor=pointer]:
+        - img [ref=e75] [cursor=pointer]
+      - button "Open issues overlay" [ref=e79] [cursor=pointer]:
+        - generic [ref=e80] [cursor=pointer]:
+          - generic [ref=e81] [cursor=pointer]: "0"
+          - generic [ref=e82] [cursor=pointer]: "1"
+        - generic [ref=e83] [cursor=pointer]: Issue
+  - alert [ref=e84]
+```

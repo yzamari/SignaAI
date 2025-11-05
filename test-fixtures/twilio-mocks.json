@@ -1,0 +1,34 @@
+{
+  "success_response": {
+    "sid": "SM1234567890abcdef",
+    "status": "queued",
+    "to": "+1234567890",
+    "from": "+15005550006",
+    "body": "Hello Test Signer,\n\nYou've been invited to sign 'Test Document'.\n\nClick here to sign: https://signaai-frontend-691837885081.us-central1.run.app/sign/token123\n\n- SignaAI Team"
+  },
+  "hebrew_success_response": {
+    "sid": "SM1234567890abcdef",
+    "status": "queued",
+    "to": "+972501234567",
+    "from": "+15005550006",
+    "body": "שלום Test Signer,\n\nהוזמנת לחתום על המסמך 'Heskem Document'.\n\nלחתימה: https://signaai-frontend-691837885081.us-central1.run.app/sign/token123\n\n- צוות SignaAI"
+  },
+  "arabic_success_response": {
+    "sid": "SM1234567890abcdef",
+    "status": "queued",
+    "to": "+201234567890",
+    "from": "+15005550006",
+    "body": "مرحبا Test Signer,\n\nتمت دعوتك للتوقيع على 'Arabic Contract'.\n\nللتوقيع: https://signaai-frontend-691837885081.us-central1.run.app/sign/token123\n\n- فريق SignaAI"
+  },
+  "error_response": {
+    "code": 21211,
+    "message": "Invalid 'To' Phone Number",
+    "status": 400
+  },
+  "rate_limit_response": {
+    "code": 20429,
+    "message": "Too Many Requests",
+    "status": 429
+  }
+}
+

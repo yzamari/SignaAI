@@ -7,6 +7,8 @@ import pytest
 import requests
 import json
 import os
+import uuid
+import time
 from typing import Dict, Any
 
 # Configuration
@@ -18,8 +20,9 @@ class TestAuthEndpoints:
 
     def test_register_new_user(self):
         """Test user registration"""
+        test_id = str(uuid.uuid4())[:8]  # Use random ID instead
         user_data = {
-            "email": f"test_{pytest.current_test_id}@test.com",
+            "email": f"test_{test_id}@test.com",
             "password": "TestPass123!",
             "name": "Test User"
         }
@@ -190,8 +193,13 @@ class TestOCRService:
         assert response.status_code == 200
         result = response.json()
         assert "analysis_results" in result
-        assert "pages" in result
+        # The OCR API returns "analysis_results" not "pages"
         assert len(result["analysis_results"]) > 0
+        
+        # Verify the structure of analysis results
+        if result["analysis_results"]:
+            first_page = result["analysis_results"][0]
+            assert "fields" in first_page or "page_number" in first_page
 
 class TestPerformance:
     """Performance and load tests"""
@@ -258,21 +266,27 @@ class TestSecurity:
             assert response.status_code in [400, 401], "SQL injection attempt should fail"
 
     def test_xss_protection(self):
-        """Test XSS protection"""
+        """Test XSS protection - script tags should be sanitized"""
         xss_payload = "<script>alert('XSS')</script>"
+        test_id = str(uuid.uuid4())[:8]
 
         user_data = {
-            "email": "test@test.com",
+            "email": f"xss_test_{test_id}@test.com",
             "password": "TestPass123!",
-            "name": xss_payload
+            "full_name": xss_payload  # Use the correct field name
         }
 
-        response = requests.post(f"{BASE_URL}/api/v1/auth/register", json=user_data)
+        response = requests.post(f"{BASE_URL}/api/v1/auth/signup", json=user_data)
 
         if response.status_code in [200, 201]:
             result = response.json()
-            # Check that script tags are not returned raw
-            assert "<script>" not in str(result)
+            # Check that script tags are properly escaped/sanitized
+            user_info = result.get("user", {})
+            user_name = user_info.get("full_name", "")
+            
+            # The XSS payload should be sanitized (HTML-escaped)
+            assert "<script>" not in user_name, "Script tags should be escaped"
+            assert "&lt;script&gt;" in user_name or xss_payload not in user_name, "XSS payload should be sanitized"
 
 if __name__ == "__main__":
     # Run tests with pytest

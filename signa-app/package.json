@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "next dev --turbopack -p 5114",
     "build": "next build --turbopack",
-    "start": "next start -p 5114"
+    "start": "next start -p 5114",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:debug": "playwright test --debug",
+    "test:e2e:report": "playwright show-report playwright-report"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
@@ -31,6 +35,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "axios": "^1.6.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

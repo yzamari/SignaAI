@@ -108,12 +108,12 @@ class AuthService:
             # Hash password
             password_hash = self.hash_password(password)
 
-            # Create user
+            # Create user (input sanitization handled by User model)
             user = User(
                 email=email,
-                phone=phone,
                 password_hash=password_hash,
                 full_name=full_name,
+                phone=phone,
                 company_name=company_name,
                 preferred_language=preferred_language,
                 is_active=True,

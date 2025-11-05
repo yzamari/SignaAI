@@ -288,15 +288,15 @@ async def get_current_user_info(current_user: User = Depends(get_current_user)):
 
 # User settings endpoints
 @app.get("/api/v1/users/settings", response_model=Dict[str, Any])
-async def get_user_settings(current_user: dict = Depends(get_current_user)):
+async def get_user_settings(current_user: User = Depends(get_current_user)):
     """Get user settings"""
     return {
         "user": {
-            "id": current_user["id"],
-            "email": current_user["email"],
-            "name": current_user.get("name", ""),
-            "phone": current_user.get("phone", ""),
-            "role": current_user.get("role", "user")
+            "id": current_user.id,
+            "email": current_user.email,
+            "name": current_user.name,
+            "phone": current_user.phone or "",
+            "role": current_user.role
         },
         "notifications": {
             "email": True,
@@ -313,7 +313,7 @@ async def get_user_settings(current_user: dict = Depends(get_current_user)):
 @app.put("/api/v1/users/settings", response_model=Dict[str, Any])
 async def update_user_settings(
     settings: Dict[str, Any],
-    current_user: dict = Depends(get_current_user)
+    current_user: User = Depends(get_current_user)
 ):
     """Update user settings"""
     # In production, save to database
@@ -321,6 +321,36 @@ async def update_user_settings(
         "message": "Settings updated successfully",
         "settings": settings
     }
+
+# Dashboard stats endpoint  
+@app.get("/api/v1/dashboard/stats")
+async def get_dashboard_stats(current_user: User = Depends(get_current_user)):
+    """Get dashboard statistics"""
+    try:
+        user_docs = [doc for doc in documents_db.values() if doc.get("user_id") == current_user.id]
+        
+        return {
+            "overview": {
+                "total_documents": len(user_docs),
+                "pending_documents": len([d for d in user_docs if d.get("status") == "pending"]),
+                "completed_documents": len([d for d in user_docs if d.get("status") == "completed"]),
+                "awaiting_signature": len([d for d in user_docs if d.get("status") == "awaiting_signature"])
+            },
+            "recent_activity": {
+                "uploads_last_30_days": len(user_docs),
+                "last_login": None,
+                "account_created": "2024-01-01T00:00:00Z"
+            },
+            "recent_documents": user_docs[:5],
+            "user_info": {
+                "email": current_user.email,
+                "name": current_user.name, 
+                "role": current_user.role
+            }
+        }
+    except Exception as e:
+        logger.error(f"Dashboard stats error: {e}")
+        return {"error": "Failed to get dashboard stats"}
 
 # Document endpoints
 @app.post("/api/v1/documents")
@@ -638,22 +668,6 @@ async def send_notification(phone: str, message: str):
     except Exception as e:
         logger.error(f"SMS error: {str(e)}")
         return {"status": "error", "message": str(e)}
-
-# Dashboard stats
-@app.get("/api/v1/dashboard/stats")
-async def get_dashboard_stats(current_user: User = Depends(get_current_user)):
-    """Get dashboard statistics"""
-    user_docs = [
-        doc for doc in documents_db.values() 
-        if doc.get("userId") == current_user.id
-    ]
-    
-    return {
-        "totalDocuments": len(user_docs),
-        "pendingSignatures": sum(1 for doc in user_docs if doc.get("status") == "pending"),
-        "completedThisMonth": sum(1 for doc in user_docs if doc.get("status") == "completed"),
-        "totalSigners": sum(len(doc.get("signers", [])) for doc in user_docs)
-    }
 
 # Workflow creation
 @app.post("/api/v1/workflows/create")

@@ -1,0 +1,2157 @@
+<testsuites id="" name="" tests="51" failures="50" skipped="0" errors="0" time="144.551767">
+<testsuite name="complete-sender-flow.spec.ts" timestamp="2025-11-05T15:18:04.618Z" hostname="chromium" tests="4" failures="4" skipped="0" time="45.49" errors="0">
+<testcase name="Complete Sender Flow › should complete full document creation workflow" classname="complete-sender-flow.spec.ts" time="11.387">
+<failure message="complete-sender-flow.spec.ts:14:7 should complete full document creation workflow" type="FAILURE">
+<![CDATA[  [chromium] › complete-sender-flow.spec.ts:14:7 › Complete Sender Flow › should complete full document creation workflow 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/complete-sender-flow.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/complete-sender-flow-Compl-87470--document-creation-workflow-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/complete-sender-flow-Compl-87470--document-creation-workflow-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/complete-sender-flow-Compl-87470--document-creation-workflow-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/complete-sender-flow-Compl-87470--document-creation-workflow-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/complete-sender-flow-Compl-87470--document-creation-workflow-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/complete-sender-flow-Compl-87470--document-creation-workflow-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Complete Sender Flow › should handle field management during upload" classname="complete-sender-flow.spec.ts" time="11.363">
+<failure message="complete-sender-flow.spec.ts:89:7 should handle field management during upload" type="FAILURE">
+<![CDATA[  [chromium] › complete-sender-flow.spec.ts:89:7 › Complete Sender Flow › should handle field management during upload 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/complete-sender-flow.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/complete-sender-flow-Compl-cdefd-ld-management-during-upload-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/complete-sender-flow-Compl-cdefd-ld-management-during-upload-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/complete-sender-flow-Compl-cdefd-ld-management-during-upload-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/complete-sender-flow-Compl-cdefd-ld-management-during-upload-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/complete-sender-flow-Compl-cdefd-ld-management-during-upload-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/complete-sender-flow-Compl-cdefd-ld-management-during-upload-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Complete Sender Flow › should support multiple signers" classname="complete-sender-flow.spec.ts" time="11.377">
+<failure message="complete-sender-flow.spec.ts:115:7 should support multiple signers" type="FAILURE">
+<![CDATA[  [chromium] › complete-sender-flow.spec.ts:115:7 › Complete Sender Flow › should support multiple signers 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/complete-sender-flow.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/complete-sender-flow-Compl-1bd65-ld-support-multiple-signers-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/complete-sender-flow-Compl-1bd65-ld-support-multiple-signers-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/complete-sender-flow-Compl-1bd65-ld-support-multiple-signers-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/complete-sender-flow-Compl-1bd65-ld-support-multiple-signers-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/complete-sender-flow-Compl-1bd65-ld-support-multiple-signers-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/complete-sender-flow-Compl-1bd65-ld-support-multiple-signers-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Complete Sender Flow › should verify document metadata is saved correctly" classname="complete-sender-flow.spec.ts" time="11.363">
+<failure message="complete-sender-flow.spec.ts:152:7 should verify document metadata is saved correctly" type="FAILURE">
+<![CDATA[  [chromium] › complete-sender-flow.spec.ts:152:7 › Complete Sender Flow › should verify document metadata is saved correctly 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/complete-sender-flow.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/complete-sender-flow-Compl-96735-metadata-is-saved-correctly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/complete-sender-flow-Compl-96735-metadata-is-saved-correctly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/complete-sender-flow-Compl-96735-metadata-is-saved-correctly-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/complete-sender-flow-Compl-96735-metadata-is-saved-correctly-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/complete-sender-flow-Compl-96735-metadata-is-saved-correctly-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/complete-sender-flow-Compl-96735-metadata-is-saved-correctly-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="complete-signer-flow.spec.ts" timestamp="2025-11-05T15:18:04.618Z" hostname="chromium" tests="6" failures="6" skipped="0" time="187.005" errors="0">
+<testcase name="Complete Signer Flow › should access document via signing token" classname="complete-signer-flow.spec.ts" time="31.46">
+<failure message="complete-signer-flow.spec.ts:57:7 should access document via signing token" type="FAILURE">
+<![CDATA[  [chromium] › complete-signer-flow.spec.ts:57:7 › Complete Signer Flow › should access document via signing token 
+
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator('img[alt*="Page"], canvas, iframe[src*=".pdf"]') to be visible
+
+
+       at fixtures/test-helpers.ts:121
+
+      119 |    */
+      120 |   async waitForDocumentLoad() {
+    > 121 |     await this.page.waitForSelector('img[alt*="Page"], canvas, iframe[src*=".pdf"]', { timeout: 30000 });
+          |                     ^
+      122 |   }
+      123 |
+      124 |   /**
+        at TestHelpers.waitForDocumentLoad (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:121:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/complete-signer-flow.spec.ts:67:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/complete-signer-flow-Compl-62822--document-via-signing-token-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/complete-signer-flow-Compl-62822--document-via-signing-token-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/complete-signer-flow-Compl-62822--document-via-signing-token-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-62822--document-via-signing-token-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-62822--document-via-signing-token-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-62822--document-via-signing-token-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Complete Signer Flow › should capture signature on signature field" classname="complete-signer-flow.spec.ts" time="31.522">
+<failure message="complete-signer-flow.spec.ts:77:7 should capture signature on signature field" type="FAILURE">
+<![CDATA[  [chromium] › complete-signer-flow.spec.ts:77:7 › Complete Signer Flow › should capture signature on signature field 
+
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator('img[alt*="Page"], canvas, iframe[src*=".pdf"]') to be visible
+
+
+       at fixtures/test-helpers.ts:121
+
+      119 |    */
+      120 |   async waitForDocumentLoad() {
+    > 121 |     await this.page.waitForSelector('img[alt*="Page"], canvas, iframe[src*=".pdf"]', { timeout: 30000 });
+          |                     ^
+      122 |   }
+      123 |
+      124 |   /**
+        at TestHelpers.waitForDocumentLoad (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:121:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/complete-signer-flow.spec.ts:84:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/complete-signer-flow-Compl-1909b-ignature-on-signature-field-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/complete-signer-flow-Compl-1909b-ignature-on-signature-field-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/complete-signer-flow-Compl-1909b-ignature-on-signature-field-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-1909b-ignature-on-signature-field-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-1909b-ignature-on-signature-field-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-1909b-ignature-on-signature-field-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Complete Signer Flow › should submit signature successfully" classname="complete-signer-flow.spec.ts" time="31.115">
+<failure message="complete-signer-flow.spec.ts:113:7 should submit signature successfully" type="FAILURE">
+<![CDATA[  [chromium] › complete-signer-flow.spec.ts:113:7 › Complete Signer Flow › should submit signature successfully 
+
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator('img[alt*="Page"], canvas, iframe[src*=".pdf"]') to be visible
+
+
+       at fixtures/test-helpers.ts:121
+
+      119 |    */
+      120 |   async waitForDocumentLoad() {
+    > 121 |     await this.page.waitForSelector('img[alt*="Page"], canvas, iframe[src*=".pdf"]', { timeout: 30000 });
+          |                     ^
+      122 |   }
+      123 |
+      124 |   /**
+        at TestHelpers.waitForDocumentLoad (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:121:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/complete-signer-flow.spec.ts:120:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/complete-signer-flow-Compl-3e80e-bmit-signature-successfully-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/complete-signer-flow-Compl-3e80e-bmit-signature-successfully-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/complete-signer-flow-Compl-3e80e-bmit-signature-successfully-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-3e80e-bmit-signature-successfully-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-3e80e-bmit-signature-successfully-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-3e80e-bmit-signature-successfully-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Complete Signer Flow › should handle multiple signature fields" classname="complete-signer-flow.spec.ts" time="30.975">
+<failure message="complete-signer-flow.spec.ts:156:7 should handle multiple signature fields" type="FAILURE">
+<![CDATA[  [chromium] › complete-signer-flow.spec.ts:156:7 › Complete Signer Flow › should handle multiple signature fields 
+
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator('img[alt*="Page"], canvas, iframe[src*=".pdf"]') to be visible
+
+
+       at fixtures/test-helpers.ts:121
+
+      119 |    */
+      120 |   async waitForDocumentLoad() {
+    > 121 |     await this.page.waitForSelector('img[alt*="Page"], canvas, iframe[src*=".pdf"]', { timeout: 30000 });
+          |                     ^
+      122 |   }
+      123 |
+      124 |   /**
+        at TestHelpers.waitForDocumentLoad (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:121:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/complete-signer-flow.spec.ts:163:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/complete-signer-flow-Compl-1dc15-e-multiple-signature-fields-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/complete-signer-flow-Compl-1dc15-e-multiple-signature-fields-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/complete-signer-flow-Compl-1dc15-e-multiple-signature-fields-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-1dc15-e-multiple-signature-fields-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-1dc15-e-multiple-signature-fields-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-1dc15-e-multiple-signature-fields-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Complete Signer Flow › should validate signature before submission" classname="complete-signer-flow.spec.ts" time="31.037">
+<failure message="complete-signer-flow.spec.ts:199:7 should validate signature before submission" type="FAILURE">
+<![CDATA[  [chromium] › complete-signer-flow.spec.ts:199:7 › Complete Signer Flow › should validate signature before submission 
+
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator('img[alt*="Page"], canvas, iframe[src*=".pdf"]') to be visible
+
+
+       at fixtures/test-helpers.ts:121
+
+      119 |    */
+      120 |   async waitForDocumentLoad() {
+    > 121 |     await this.page.waitForSelector('img[alt*="Page"], canvas, iframe[src*=".pdf"]', { timeout: 30000 });
+          |                     ^
+      122 |   }
+      123 |
+      124 |   /**
+        at TestHelpers.waitForDocumentLoad (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:121:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/complete-signer-flow.spec.ts:206:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/complete-signer-flow-Compl-19d53-signature-before-submission-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/complete-signer-flow-Compl-19d53-signature-before-submission-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/complete-signer-flow-Compl-19d53-signature-before-submission-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-19d53-signature-before-submission-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-19d53-signature-before-submission-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-19d53-signature-before-submission-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Complete Signer Flow › should display document pages correctly" classname="complete-signer-flow.spec.ts" time="30.896">
+<failure message="complete-signer-flow.spec.ts:224:7 should display document pages correctly" type="FAILURE">
+<![CDATA[  [chromium] › complete-signer-flow.spec.ts:224:7 › Complete Signer Flow › should display document pages correctly 
+
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator('img[alt*="Page"], canvas, iframe[src*=".pdf"]') to be visible
+
+
+       at fixtures/test-helpers.ts:121
+
+      119 |    */
+      120 |   async waitForDocumentLoad() {
+    > 121 |     await this.page.waitForSelector('img[alt*="Page"], canvas, iframe[src*=".pdf"]', { timeout: 30000 });
+          |                     ^
+      122 |   }
+      123 |
+      124 |   /**
+        at TestHelpers.waitForDocumentLoad (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:121:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/complete-signer-flow.spec.ts:231:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/complete-signer-flow-Compl-13980-ay-document-pages-correctly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/complete-signer-flow-Compl-13980-ay-document-pages-correctly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/complete-signer-flow-Compl-13980-ay-document-pages-correctly-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-13980-ay-document-pages-correctly-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-13980-ay-document-pages-correctly-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/complete-signer-flow-Compl-13980-ay-document-pages-correctly-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="edge-cases.spec.ts" timestamp="2025-11-05T15:18:04.618Z" hostname="chromium" tests="6" failures="6" skipped="0" time="84.951" errors="0">
+<testcase name="Edge Cases › should handle many signers (10+)" classname="edge-cases.spec.ts" time="10.622">
+<failure message="edge-cases.spec.ts:13:7 should handle many signers (10+)" type="FAILURE">
+<![CDATA[  [chromium] › edge-cases.spec.ts:13:7 › Edge Cases › should handle many signers (10+) ─────────────
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/edge-cases.spec.ts:14:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-should-handle-many-signers-10--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-should-handle-many-signers-10--chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/edge-cases-Edge-Cases-should-handle-many-signers-10--chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-should-handle-many-signers-10--chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-should-handle-many-signers-10--chromium/video.webm]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-should-handle-many-signers-10--chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Edge Cases › should handle concurrent signing attempts" classname="edge-cases.spec.ts" time="31.617">
+<failure message="edge-cases.spec.ts:56:7 should handle concurrent signing attempts" type="FAILURE">
+<![CDATA[  [chromium] › edge-cases.spec.ts:56:7 › Edge Cases › should handle concurrent signing attempts ────
+
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator('img[alt*="Page"], canvas') to be visible
+
+
+      91 |     // Both should load
+      92 |     await Promise.all([
+    > 93 |       page1.waitForSelector('img[alt*="Page"], canvas', { timeout: 30000 }),
+         |             ^
+      94 |       page2.waitForSelector('img[alt*="Page"], canvas', { timeout: 30000 })
+      95 |     ]);
+      96 |     
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/edge-cases.spec.ts:93:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-shou-a5ab6-concurrent-signing-attempts-chromium/test-failed-3.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-shou-a5ab6-concurrent-signing-attempts-chromium/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-shou-a5ab6-concurrent-signing-attempts-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-shou-a5ab6-concurrent-signing-attempts-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-shou-a5ab6-concurrent-signing-attempts-chromium/video-2.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-shou-a5ab6-concurrent-signing-attempts-chromium/video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-shou-a5ab6-concurrent-signing-attempts-chromium/test-failed-3.png]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-shou-a5ab6-concurrent-signing-attempts-chromium/test-failed-2.png]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-shou-a5ab6-concurrent-signing-attempts-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-shou-a5ab6-concurrent-signing-attempts-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-shou-a5ab6-concurrent-signing-attempts-chromium/video-2.webm]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-shou-a5ab6-concurrent-signing-attempts-chromium/video-1.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Edge Cases › should handle rapid page navigation" classname="edge-cases.spec.ts" time="10.5">
+<failure message="edge-cases.spec.ts:111:7 should handle rapid page navigation" type="FAILURE">
+<![CDATA[  [chromium] › edge-cases.spec.ts:111:7 › Edge Cases › should handle rapid page navigation ─────────
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/edge-cases.spec.ts:112:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-should-handle-rapid-page-navigation-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-should-handle-rapid-page-navigation-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/edge-cases-Edge-Cases-should-handle-rapid-page-navigation-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-should-handle-rapid-page-navigation-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-should-handle-rapid-page-navigation-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-should-handle-rapid-page-navigation-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Edge Cases › should handle browser back/forward buttons" classname="edge-cases.spec.ts" time="10.721">
+<failure message="edge-cases.spec.ts:125:7 should handle browser back/forward buttons" type="FAILURE">
+<![CDATA[  [chromium] › edge-cases.spec.ts:125:7 › Edge Cases › should handle browser back/forward buttons ──
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/edge-cases.spec.ts:126:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-shou-2a3ee-rowser-back-forward-buttons-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-shou-2a3ee-rowser-back-forward-buttons-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/edge-cases-Edge-Cases-shou-2a3ee-rowser-back-forward-buttons-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-shou-2a3ee-rowser-back-forward-buttons-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-shou-2a3ee-rowser-back-forward-buttons-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-shou-2a3ee-rowser-back-forward-buttons-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Edge Cases › should handle empty document title" classname="edge-cases.spec.ts" time="10.73">
+<failure message="edge-cases.spec.ts:139:7 should handle empty document title" type="FAILURE">
+<![CDATA[  [chromium] › edge-cases.spec.ts:139:7 › Edge Cases › should handle empty document title ──────────
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/edge-cases.spec.ts:140:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-should-handle-empty-document-title-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-should-handle-empty-document-title-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/edge-cases-Edge-Cases-should-handle-empty-document-title-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-should-handle-empty-document-title-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-should-handle-empty-document-title-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-should-handle-empty-document-title-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Edge Cases › should handle special characters in signer names" classname="edge-cases.spec.ts" time="10.761">
+<failure message="edge-cases.spec.ts:162:7 should handle special characters in signer names" type="FAILURE">
+<![CDATA[  [chromium] › edge-cases.spec.ts:162:7 › Edge Cases › should handle special characters in signer names 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/edge-cases.spec.ts:163:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-shou-84902--characters-in-signer-names-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/edge-cases-Edge-Cases-shou-84902--characters-in-signer-names-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/edge-cases-Edge-Cases-shou-84902--characters-in-signer-names-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-shou-84902--characters-in-signer-names-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-shou-84902--characters-in-signer-names-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/edge-cases-Edge-Cases-shou-84902--characters-in-signer-names-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="error-handling.spec.ts" timestamp="2025-11-05T15:18:04.618Z" hostname="chromium" tests="9" failures="8" skipped="0" time="85.129" errors="0">
+<testcase name="Error Handling › should handle invalid PDF upload" classname="error-handling.spec.ts" time="10.609">
+<failure message="error-handling.spec.ts:12:7 should handle invalid PDF upload" type="FAILURE">
+<![CDATA[  [chromium] › error-handling.spec.ts:12:7 › Error Handling › should handle invalid PDF upload ─────
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/error-handling.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handl-e5307-d-handle-invalid-PDF-upload-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handl-e5307-d-handle-invalid-PDF-upload-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/error-handling-Error-Handl-e5307-d-handle-invalid-PDF-upload-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/error-handling-Error-Handl-e5307-d-handle-invalid-PDF-upload-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handl-e5307-d-handle-invalid-PDF-upload-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handl-e5307-d-handle-invalid-PDF-upload-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Error Handling › should handle OCR service unavailable" classname="error-handling.spec.ts" time="10.731">
+<failure message="error-handling.spec.ts:28:7 should handle OCR service unavailable" type="FAILURE">
+<![CDATA[  [chromium] › error-handling.spec.ts:28:7 › Error Handling › should handle OCR service unavailable 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/error-handling.spec.ts:29:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handl-18e8d-dle-OCR-service-unavailable-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handl-18e8d-dle-OCR-service-unavailable-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/error-handling-Error-Handl-18e8d-dle-OCR-service-unavailable-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/error-handling-Error-Handl-18e8d-dle-OCR-service-unavailable-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handl-18e8d-dle-OCR-service-unavailable-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handl-18e8d-dle-OCR-service-unavailable-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Error Handling › should handle network failures" classname="error-handling.spec.ts" time="10.531">
+<failure message="error-handling.spec.ts:54:7 should handle network failures" type="FAILURE">
+<![CDATA[  [chromium] › error-handling.spec.ts:54:7 › Error Handling › should handle network failures ───────
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/error-handling.spec.ts:55:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handling-should-handle-network-failures-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handling-should-handle-network-failures-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/error-handling-Error-Handling-should-handle-network-failures-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/error-handling-Error-Handling-should-handle-network-failures-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handling-should-handle-network-failures-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handling-should-handle-network-failures-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Error Handling › should handle token expiration" classname="error-handling.spec.ts" time="10.53">
+<failure message="error-handling.spec.ts:78:7 should handle token expiration" type="FAILURE">
+<![CDATA[  [chromium] › error-handling.spec.ts:78:7 › Error Handling › should handle token expiration ───────
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/error-handling.spec.ts:79:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handling-should-handle-token-expiration-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handling-should-handle-token-expiration-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/error-handling-Error-Handling-should-handle-token-expiration-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/error-handling-Error-Handling-should-handle-token-expiration-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handling-should-handle-token-expiration-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handling-should-handle-token-expiration-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Error Handling › should handle invalid signing token" classname="error-handling.spec.ts" time="0.921">
+</testcase>
+<testcase name="Error Handling › should handle document not found" classname="error-handling.spec.ts" time="10.423">
+<failure message="error-handling.spec.ts:101:7 should handle document not found" type="FAILURE">
+<![CDATA[  [chromium] › error-handling.spec.ts:101:7 › Error Handling › should handle document not found ────
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/error-handling.spec.ts:102:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handl-628e3-d-handle-document-not-found-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handl-628e3-d-handle-document-not-found-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/error-handling-Error-Handl-628e3-d-handle-document-not-found-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/error-handling-Error-Handl-628e3-d-handle-document-not-found-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handl-628e3-d-handle-document-not-found-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handl-628e3-d-handle-document-not-found-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Error Handling › should handle permission denied" classname="error-handling.spec.ts" time="10.26">
+<failure message="error-handling.spec.ts:113:7 should handle permission denied" type="FAILURE">
+<![CDATA[  [chromium] › error-handling.spec.ts:113:7 › Error Handling › should handle permission denied ─────
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/error-handling.spec.ts:114:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handl-e8d4c-ld-handle-permission-denied-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handl-e8d4c-ld-handle-permission-denied-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/error-handling-Error-Handl-e8d4c-ld-handle-permission-denied-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/error-handling-Error-Handl-e8d4c-ld-handle-permission-denied-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handl-e8d4c-ld-handle-permission-denied-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handl-e8d4c-ld-handle-permission-denied-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Error Handling › should handle empty file upload" classname="error-handling.spec.ts" time="10.567">
+<failure message="error-handling.spec.ts:123:7 should handle empty file upload" type="FAILURE">
+<![CDATA[  [chromium] › error-handling.spec.ts:123:7 › Error Handling › should handle empty file upload ─────
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/error-handling.spec.ts:124:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handl-30f3f-ld-handle-empty-file-upload-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handl-30f3f-ld-handle-empty-file-upload-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/error-handling-Error-Handl-30f3f-ld-handle-empty-file-upload-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/error-handling-Error-Handl-30f3f-ld-handle-empty-file-upload-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handl-30f3f-ld-handle-empty-file-upload-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handl-30f3f-ld-handle-empty-file-upload-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Error Handling › should handle very large file upload" classname="error-handling.spec.ts" time="10.557">
+<failure message="error-handling.spec.ts:133:7 should handle very large file upload" type="FAILURE">
+<![CDATA[  [chromium] › error-handling.spec.ts:133:7 › Error Handling › should handle very large file upload 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/error-handling.spec.ts:134:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handl-ecd98-ndle-very-large-file-upload-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/error-handling-Error-Handl-ecd98-ndle-very-large-file-upload-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/error-handling-Error-Handl-ecd98-ndle-very-large-file-upload-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/error-handling-Error-Handl-ecd98-ndle-very-large-file-upload-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handl-ecd98-ndle-very-large-file-upload-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/error-handling-Error-Handl-ecd98-ndle-very-large-file-upload-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="multilang-arabic.spec.ts" timestamp="2025-11-05T15:18:04.618Z" hostname="chromium" tests="3" failures="3" skipped="0" time="31.099" errors="0">
+<testcase name="Arabic (RTL) Language Flow › should process Arabic document correctly" classname="multilang-arabic.spec.ts" time="10.365">
+<failure message="multilang-arabic.spec.ts:13:7 should process Arabic document correctly" type="FAILURE">
+<![CDATA[  [chromium] › multilang-arabic.spec.ts:13:7 › Arabic (RTL) Language Flow › should process Arabic document correctly 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/multilang-arabic.spec.ts:10:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/multilang-arabic-Arabic-RT-d7dd5-s-Arabic-document-correctly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/multilang-arabic-Arabic-RT-d7dd5-s-Arabic-document-correctly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/multilang-arabic-Arabic-RT-d7dd5-s-Arabic-document-correctly-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/multilang-arabic-Arabic-RT-d7dd5-s-Arabic-document-correctly-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/multilang-arabic-Arabic-RT-d7dd5-s-Arabic-document-correctly-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/multilang-arabic-Arabic-RT-d7dd5-s-Arabic-document-correctly-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Arabic (RTL) Language Flow › should send Arabic SMS notification" classname="multilang-arabic.spec.ts" time="10.363">
+<failure message="multilang-arabic.spec.ts:29:7 should send Arabic SMS notification" type="FAILURE">
+<![CDATA[  [chromium] › multilang-arabic.spec.ts:29:7 › Arabic (RTL) Language Flow › should send Arabic SMS notification 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/multilang-arabic.spec.ts:10:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/multilang-arabic-Arabic-RT-ef4ae-end-Arabic-SMS-notification-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/multilang-arabic-Arabic-RT-ef4ae-end-Arabic-SMS-notification-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/multilang-arabic-Arabic-RT-ef4ae-end-Arabic-SMS-notification-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/multilang-arabic-Arabic-RT-ef4ae-end-Arabic-SMS-notification-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/multilang-arabic-Arabic-RT-ef4ae-end-Arabic-SMS-notification-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/multilang-arabic-Arabic-RT-ef4ae-end-Arabic-SMS-notification-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Arabic (RTL) Language Flow › should handle Arabic field labels" classname="multilang-arabic.spec.ts" time="10.371">
+<failure message="multilang-arabic.spec.ts:34:7 should handle Arabic field labels" type="FAILURE">
+<![CDATA[  [chromium] › multilang-arabic.spec.ts:34:7 › Arabic (RTL) Language Flow › should handle Arabic field labels 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/multilang-arabic.spec.ts:10:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/multilang-arabic-Arabic-RT-af1f4--handle-Arabic-field-labels-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/multilang-arabic-Arabic-RT-af1f4--handle-Arabic-field-labels-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/multilang-arabic-Arabic-RT-af1f4--handle-Arabic-field-labels-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/multilang-arabic-Arabic-RT-af1f4--handle-Arabic-field-labels-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/multilang-arabic-Arabic-RT-af1f4--handle-Arabic-field-labels-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/multilang-arabic-Arabic-RT-af1f4--handle-Arabic-field-labels-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="multilang-english.spec.ts" timestamp="2025-11-05T15:18:04.618Z" hostname="chromium" tests="3" failures="3" skipped="0" time="31.561" errors="0">
+<testcase name="English (LTR) Language Flow › should process English document correctly" classname="multilang-english.spec.ts" time="10.29">
+<failure message="multilang-english.spec.ts:14:7 should process English document correctly" type="FAILURE">
+<![CDATA[  [chromium] › multilang-english.spec.ts:14:7 › English (LTR) Language Flow › should process English document correctly 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/multilang-english.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/multilang-english-English--fb862--English-document-correctly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/multilang-english-English--fb862--English-document-correctly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/multilang-english-English--fb862--English-document-correctly-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/multilang-english-English--fb862--English-document-correctly-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/multilang-english-English--fb862--English-document-correctly-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/multilang-english-English--fb862--English-document-correctly-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="English (LTR) Language Flow › should send English SMS notification" classname="multilang-english.spec.ts" time="10.539">
+<failure message="multilang-english.spec.ts:35:7 should send English SMS notification" type="FAILURE">
+<![CDATA[  [chromium] › multilang-english.spec.ts:35:7 › English (LTR) Language Flow › should send English SMS notification 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/multilang-english.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/multilang-english-English--af87d-nd-English-SMS-notification-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/multilang-english-English--af87d-nd-English-SMS-notification-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/multilang-english-English--af87d-nd-English-SMS-notification-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/multilang-english-English--af87d-nd-English-SMS-notification-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/multilang-english-English--af87d-nd-English-SMS-notification-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/multilang-english-English--af87d-nd-English-SMS-notification-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="English (LTR) Language Flow › should display English UI elements correctly" classname="multilang-english.spec.ts" time="10.732">
+<failure message="multilang-english.spec.ts:65:7 should display English UI elements correctly" type="FAILURE">
+<![CDATA[  [chromium] › multilang-english.spec.ts:65:7 › English (LTR) Language Flow › should display English UI elements correctly 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/multilang-english.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/multilang-english-English--65faf-glish-UI-elements-correctly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/multilang-english-English--65faf-glish-UI-elements-correctly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/multilang-english-English--65faf-glish-UI-elements-correctly-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/multilang-english-English--65faf-glish-UI-elements-correctly-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/multilang-english-English--65faf-glish-UI-elements-correctly-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/multilang-english-English--65faf-glish-UI-elements-correctly-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="multilang-hebrew.spec.ts" timestamp="2025-11-05T15:18:04.618Z" hostname="chromium" tests="4" failures="4" skipped="0" time="41.664" errors="0">
+<testcase name="Hebrew (RTL) Language Flow › should process Hebrew document correctly" classname="multilang-hebrew.spec.ts" time="10.444">
+<failure message="multilang-hebrew.spec.ts:14:7 should process Hebrew document correctly" type="FAILURE">
+<![CDATA[  [chromium] › multilang-hebrew.spec.ts:14:7 › Hebrew (RTL) Language Flow › should process Hebrew document correctly 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/multilang-hebrew.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/multilang-hebrew-Hebrew-RT-97809-s-Hebrew-document-correctly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/multilang-hebrew-Hebrew-RT-97809-s-Hebrew-document-correctly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/multilang-hebrew-Hebrew-RT-97809-s-Hebrew-document-correctly-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/multilang-hebrew-Hebrew-RT-97809-s-Hebrew-document-correctly-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/multilang-hebrew-Hebrew-RT-97809-s-Hebrew-document-correctly-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/multilang-hebrew-Hebrew-RT-97809-s-Hebrew-document-correctly-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Hebrew (RTL) Language Flow › should send Hebrew SMS notification" classname="multilang-hebrew.spec.ts" time="10.439">
+<failure message="multilang-hebrew.spec.ts:38:7 should send Hebrew SMS notification" type="FAILURE">
+<![CDATA[  [chromium] › multilang-hebrew.spec.ts:38:7 › Hebrew (RTL) Language Flow › should send Hebrew SMS notification 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/multilang-hebrew.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/multilang-hebrew-Hebrew-RT-098eb-end-Hebrew-SMS-notification-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/multilang-hebrew-Hebrew-RT-098eb-end-Hebrew-SMS-notification-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/multilang-hebrew-Hebrew-RT-098eb-end-Hebrew-SMS-notification-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/multilang-hebrew-Hebrew-RT-098eb-end-Hebrew-SMS-notification-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/multilang-hebrew-Hebrew-RT-098eb-end-Hebrew-SMS-notification-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/multilang-hebrew-Hebrew-RT-098eb-end-Hebrew-SMS-notification-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Hebrew (RTL) Language Flow › should display Hebrew UI elements correctly" classname="multilang-hebrew.spec.ts" time="10.439">
+<failure message="multilang-hebrew.spec.ts:74:7 should display Hebrew UI elements correctly" type="FAILURE">
+<![CDATA[  [chromium] › multilang-hebrew.spec.ts:74:7 › Hebrew (RTL) Language Flow › should display Hebrew UI elements correctly 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/multilang-hebrew.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/multilang-hebrew-Hebrew-RT-fd91e-ebrew-UI-elements-correctly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/multilang-hebrew-Hebrew-RT-fd91e-ebrew-UI-elements-correctly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/multilang-hebrew-Hebrew-RT-fd91e-ebrew-UI-elements-correctly-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/multilang-hebrew-Hebrew-RT-fd91e-ebrew-UI-elements-correctly-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/multilang-hebrew-Hebrew-RT-fd91e-ebrew-UI-elements-correctly-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/multilang-hebrew-Hebrew-RT-fd91e-ebrew-UI-elements-correctly-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Hebrew (RTL) Language Flow › should handle Hebrew field labels" classname="multilang-hebrew.spec.ts" time="10.342">
+<failure message="multilang-hebrew.spec.ts:86:7 should handle Hebrew field labels" type="FAILURE">
+<![CDATA[  [chromium] › multilang-hebrew.spec.ts:86:7 › Hebrew (RTL) Language Flow › should handle Hebrew field labels 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/multilang-hebrew.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/multilang-hebrew-Hebrew-RT-1fdb9--handle-Hebrew-field-labels-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/multilang-hebrew-Hebrew-RT-1fdb9--handle-Hebrew-field-labels-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/multilang-hebrew-Hebrew-RT-1fdb9--handle-Hebrew-field-labels-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/multilang-hebrew-Hebrew-RT-1fdb9--handle-Hebrew-field-labels-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/multilang-hebrew-Hebrew-RT-1fdb9--handle-Hebrew-field-labels-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/multilang-hebrew-Hebrew-RT-1fdb9--handle-Hebrew-field-labels-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="parallel-workflow.spec.ts" timestamp="2025-11-05T15:18:04.618Z" hostname="chromium" tests="3" failures="3" skipped="0" time="93.02" errors="0">
+<testcase name="Parallel Workflow › should allow all signers to sign simultaneously" classname="parallel-workflow.spec.ts" time="31.642">
+<failure message="parallel-workflow.spec.ts:51:7 should allow all signers to sign simultaneously" type="FAILURE">
+<![CDATA[  [chromium] › parallel-workflow.spec.ts:51:7 › Parallel Workflow › should allow all signers to sign simultaneously 
+
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator('img[alt*="Page"], canvas, iframe') to be visible
+
+
+      74 |     // All should load successfully
+      75 |     await Promise.all([
+    > 76 |       page1.waitForSelector('img[alt*="Page"], canvas, iframe', { timeout: 30000 }),
+         |             ^
+      77 |       page2.waitForSelector('img[alt*="Page"], canvas, iframe', { timeout: 30000 }),
+      78 |       page3.waitForSelector('img[alt*="Page"], canvas, iframe', { timeout: 30000 })
+      79 |     ]);
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/parallel-workflow.spec.ts:76:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/test-failed-4.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/test-failed-3.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/video-2.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #7: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #8: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/video-3.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/test-failed-4.png]]
+
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/test-failed-2.png]]
+
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/test-failed-3.png]]
+
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/video-2.webm]]
+
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/video-1.webm]]
+
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-1fc35-ners-to-sign-simultaneously-chromium/video-3.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Parallel Workflow › should not enforce signing order in parallel workflow" classname="parallel-workflow.spec.ts" time="30.583">
+<failure message="parallel-workflow.spec.ts:145:7 should not enforce signing order in parallel workflow" type="FAILURE">
+<![CDATA[  [chromium] › parallel-workflow.spec.ts:145:7 › Parallel Workflow › should not enforce signing order in parallel workflow 
+
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator('img[alt*="Page"], canvas, iframe[src*=".pdf"]') to be visible
+
+
+       at fixtures/test-helpers.ts:121
+
+      119 |    */
+      120 |   async waitForDocumentLoad() {
+    > 121 |     await this.page.waitForSelector('img[alt*="Page"], canvas, iframe[src*=".pdf"]', { timeout: 30000 });
+          |                     ^
+      122 |   }
+      123 |
+      124 |   /**
+        at TestHelpers.waitForDocumentLoad (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:121:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/parallel-workflow.spec.ts:154:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/parallel-workflow-Parallel-fced4--order-in-parallel-workflow-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/parallel-workflow-Parallel-fced4--order-in-parallel-workflow-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/parallel-workflow-Parallel-fced4--order-in-parallel-workflow-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-fced4--order-in-parallel-workflow-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-fced4--order-in-parallel-workflow-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-fced4--order-in-parallel-workflow-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Parallel Workflow › should complete workflow when all signers have signed" classname="parallel-workflow.spec.ts" time="30.795">
+<failure message="parallel-workflow.spec.ts:171:7 should complete workflow when all signers have signed" type="FAILURE">
+<![CDATA[  [chromium] › parallel-workflow.spec.ts:171:7 › Parallel Workflow › should complete workflow when all signers have signed 
+
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator('img[alt*="Page"], canvas, iframe[src*=".pdf"]') to be visible
+
+
+       at fixtures/test-helpers.ts:121
+
+      119 |    */
+      120 |   async waitForDocumentLoad() {
+    > 121 |     await this.page.waitForSelector('img[alt*="Page"], canvas, iframe[src*=".pdf"]', { timeout: 30000 });
+          |                     ^
+      122 |   }
+      123 |
+      124 |   /**
+        at TestHelpers.waitForDocumentLoad (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:121:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/parallel-workflow.spec.ts:186:21
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/parallel-workflow-Parallel-ed057-hen-all-signers-have-signed-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/parallel-workflow-Parallel-ed057-hen-all-signers-have-signed-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/parallel-workflow-Parallel-ed057-hen-all-signers-have-signed-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-ed057-hen-all-signers-have-signed-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-ed057-hen-all-signers-have-signed-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/parallel-workflow-Parallel-ed057-hen-all-signers-have-signed-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="performance.spec.ts" timestamp="2025-11-05T15:18:04.618Z" hostname="chromium" tests="6" failures="6" skipped="0" time="63.994" errors="0">
+<testcase name="Performance Tests › should load upload page quickly" classname="performance.spec.ts" time="10.577">
+<failure message="performance.spec.ts:14:7 should load upload page quickly" type="FAILURE">
+<![CDATA[  [chromium] › performance.spec.ts:14:7 › Performance Tests › should load upload page quickly ──────
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/performance.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/performance-Performance-Te-d62b1-ld-load-upload-page-quickly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/performance-Performance-Te-d62b1-ld-load-upload-page-quickly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/performance-Performance-Te-d62b1-ld-load-upload-page-quickly-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/performance-Performance-Te-d62b1-ld-load-upload-page-quickly-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/performance-Performance-Te-d62b1-ld-load-upload-page-quickly-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/performance-Performance-Te-d62b1-ld-load-upload-page-quickly-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should process OCR within reasonable time" classname="performance.spec.ts" time="10.555">
+<failure message="performance.spec.ts:24:7 should process OCR within reasonable time" type="FAILURE">
+<![CDATA[  [chromium] › performance.spec.ts:24:7 › Performance Tests › should process OCR within reasonable time 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/performance.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/performance-Performance-Te-ac787--OCR-within-reasonable-time-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/performance-Performance-Te-ac787--OCR-within-reasonable-time-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/performance-Performance-Te-ac787--OCR-within-reasonable-time-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/performance-Performance-Te-ac787--OCR-within-reasonable-time-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/performance-Performance-Te-ac787--OCR-within-reasonable-time-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/performance-Performance-Te-ac787--OCR-within-reasonable-time-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should render image preview quickly" classname="performance.spec.ts" time="10.943">
+<failure message="performance.spec.ts:41:7 should render image preview quickly" type="FAILURE">
+<![CDATA[  [chromium] › performance.spec.ts:41:7 › Performance Tests › should render image preview quickly ──
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/performance.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/performance-Performance-Te-7978b-ender-image-preview-quickly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/performance-Performance-Te-7978b-ender-image-preview-quickly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/performance-Performance-Te-7978b-ender-image-preview-quickly-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/performance-Performance-Te-7978b-ender-image-preview-quickly-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/performance-Performance-Te-7978b-ender-image-preview-quickly-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/performance-Performance-Te-7978b-ender-image-preview-quickly-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should handle signature canvas performance" classname="performance.spec.ts" time="10.627">
+<failure message="performance.spec.ts:60:7 should handle signature canvas performance" type="FAILURE">
+<![CDATA[  [chromium] › performance.spec.ts:60:7 › Performance Tests › should handle signature canvas performance 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/performance.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/performance-Performance-Te-40c5d-ignature-canvas-performance-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/performance-Performance-Te-40c5d-ignature-canvas-performance-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/performance-Performance-Te-40c5d-ignature-canvas-performance-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/performance-Performance-Te-40c5d-ignature-canvas-performance-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/performance-Performance-Te-40c5d-ignature-canvas-performance-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/performance-Performance-Te-40c5d-ignature-canvas-performance-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should load document list quickly" classname="performance.spec.ts" time="10.631">
+<failure message="performance.spec.ts:80:7 should load document list quickly" type="FAILURE">
+<![CDATA[  [chromium] › performance.spec.ts:80:7 › Performance Tests › should load document list quickly ────
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/performance.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/performance-Performance-Te-da71b--load-document-list-quickly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/performance-Performance-Te-da71b--load-document-list-quickly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/performance-Performance-Te-da71b--load-document-list-quickly-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/performance-Performance-Te-da71b--load-document-list-quickly-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/performance-Performance-Te-da71b--load-document-list-quickly-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/performance-Performance-Te-da71b--load-document-list-quickly-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should handle large document upload" classname="performance.spec.ts" time="10.661">
+<failure message="performance.spec.ts:90:7 should handle large document upload" type="FAILURE">
+<![CDATA[  [chromium] › performance.spec.ts:90:7 › Performance Tests › should handle large document upload ──
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       at fixtures/test-helpers.ts:12
+
+      10 |   async login(email: string = 'demo@signaai.com', password: string = 'Demo123!') {
+      11 |     await this.page.goto('/login');
+    > 12 |     await this.page.fill('input[type="email"]', email);
+         |                     ^
+      13 |     await this.page.fill('input[type="password"]', password);
+      14 |     await this.page.click('button[type="submit"]');
+      15 |     await this.page.waitForURL(/\/(dashboard|upload)/, { timeout: 10000 });
+        at TestHelpers.login (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:12:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/performance.spec.ts:11:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/performance-Performance-Te-bea9d-andle-large-document-upload-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/performance-Performance-Te-bea9d-andle-large-document-upload-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/performance-Performance-Te-bea9d-andle-large-document-upload-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/performance-Performance-Te-bea9d-andle-large-document-upload-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/performance-Performance-Te-bea9d-andle-large-document-upload-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/performance-Performance-Te-bea9d-andle-large-document-upload-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="sequential-workflow.spec.ts" timestamp="2025-11-05T15:18:04.618Z" hostname="chromium" tests="2" failures="2" skipped="0" time="62.319" errors="0">
+<testcase name="Sequential Workflow › should enforce signing order in sequential workflow" classname="sequential-workflow.spec.ts" time="31.066">
+<failure message="sequential-workflow.spec.ts:55:7 should enforce signing order in sequential workflow" type="FAILURE">
+<![CDATA[  [chromium] › sequential-workflow.spec.ts:55:7 › Sequential Workflow › should enforce signing order in sequential workflow 
+
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator('img[alt*="Page"], canvas, iframe[src*=".pdf"]') to be visible
+
+
+       at fixtures/test-helpers.ts:121
+
+      119 |    */
+      120 |   async waitForDocumentLoad() {
+    > 121 |     await this.page.waitForSelector('img[alt*="Page"], canvas, iframe[src*=".pdf"]', { timeout: 30000 });
+          |                     ^
+      122 |   }
+      123 |
+      124 |   /**
+        at TestHelpers.waitForDocumentLoad (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:121:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/sequential-workflow.spec.ts:64:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/sequential-workflow-Sequen-d9df3-rder-in-sequential-workflow-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/sequential-workflow-Sequen-d9df3-rder-in-sequential-workflow-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/sequential-workflow-Sequen-d9df3-rder-in-sequential-workflow-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/sequential-workflow-Sequen-d9df3-rder-in-sequential-workflow-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/sequential-workflow-Sequen-d9df3-rder-in-sequential-workflow-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/sequential-workflow-Sequen-d9df3-rder-in-sequential-workflow-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Sequential Workflow › should prevent later signers from signing before their turn" classname="sequential-workflow.spec.ts" time="31.253">
+<failure message="sequential-workflow.spec.ts:150:7 should prevent later signers from signing before their turn" type="FAILURE">
+<![CDATA[  [chromium] › sequential-workflow.spec.ts:150:7 › Sequential Workflow › should prevent later signers from signing before their turn 
+
+    TimeoutError: page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator('img[alt*="Page"], canvas, iframe[src*=".pdf"]') to be visible
+
+
+       at fixtures/test-helpers.ts:121
+
+      119 |    */
+      120 |   async waitForDocumentLoad() {
+    > 121 |     await this.page.waitForSelector('img[alt*="Page"], canvas, iframe[src*=".pdf"]', { timeout: 30000 });
+          |                     ^
+      122 |   }
+      123 |
+      124 |   /**
+        at TestHelpers.waitForDocumentLoad (/Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/fixtures/test-helpers.ts:121:21)
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/sequential-workflow.spec.ts:165:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/sequential-workflow-Sequen-5de60-m-signing-before-their-turn-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/sequential-workflow-Sequen-5de60-m-signing-before-their-turn-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/sequential-workflow-Sequen-5de60-m-signing-before-their-turn-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/sequential-workflow-Sequen-5de60-m-signing-before-their-turn-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/sequential-workflow-Sequen-5de60-m-signing-before-their-turn-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/sequential-workflow-Sequen-5de60-m-signing-before-their-turn-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="upload.spec.ts" timestamp="2025-11-05T15:18:04.618Z" hostname="chromium" tests="5" failures="5" skipped="0" time="52.151" errors="0">
+<testcase name="Upload Flow E2E Tests › should load upload page" classname="upload.spec.ts" time="10.258">
+<failure message="upload.spec.ts:14:7 should load upload page" type="FAILURE">
+<![CDATA[  [chromium] › upload.spec.ts:14:7 › Upload Flow E2E Tests › should load upload page ───────────────
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       6 |     // Login first
+       7 |     await page.goto('http://localhost:5114/login');
+    >  8 |     await page.fill('input[type="email"]', 'demo@signaai.com');
+         |                ^
+       9 |     await page.fill('input[type="password"]', 'Demo123!');
+      10 |     await page.click('button[type="submit"]');
+      11 |     await page.waitForURL(/\/(dashboard|upload)/);
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/upload.spec.ts:8:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/upload-Upload-Flow-E2E-Tests-should-load-upload-page-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/upload-Upload-Flow-E2E-Tests-should-load-upload-page-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/upload-Upload-Flow-E2E-Tests-should-load-upload-page-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tests-should-load-upload-page-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tests-should-load-upload-page-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tests-should-load-upload-page-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Upload Flow E2E Tests › should upload PDF and process with OCR" classname="upload.spec.ts" time="10.545">
+<failure message="upload.spec.ts:20:7 should upload PDF and process with OCR" type="FAILURE">
+<![CDATA[  [chromium] › upload.spec.ts:20:7 › Upload Flow E2E Tests › should upload PDF and process with OCR 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       6 |     // Login first
+       7 |     await page.goto('http://localhost:5114/login');
+    >  8 |     await page.fill('input[type="email"]', 'demo@signaai.com');
+         |                ^
+       9 |     await page.fill('input[type="password"]', 'Demo123!');
+      10 |     await page.click('button[type="submit"]');
+      11 |     await page.waitForURL(/\/(dashboard|upload)/);
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/upload.spec.ts:8:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/upload-Upload-Flow-E2E-Tes-66e50-ad-PDF-and-process-with-OCR-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/upload-Upload-Flow-E2E-Tes-66e50-ad-PDF-and-process-with-OCR-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/upload-Upload-Flow-E2E-Tes-66e50-ad-PDF-and-process-with-OCR-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tes-66e50-ad-PDF-and-process-with-OCR-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tes-66e50-ad-PDF-and-process-with-OCR-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tes-66e50-ad-PDF-and-process-with-OCR-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Upload Flow E2E Tests › should navigate through upload steps" classname="upload.spec.ts" time="10.384">
+<failure message="upload.spec.ts:42:7 should navigate through upload steps" type="FAILURE">
+<![CDATA[  [chromium] › upload.spec.ts:42:7 › Upload Flow E2E Tests › should navigate through upload steps ──
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       6 |     // Login first
+       7 |     await page.goto('http://localhost:5114/login');
+    >  8 |     await page.fill('input[type="email"]', 'demo@signaai.com');
+         |                ^
+       9 |     await page.fill('input[type="password"]', 'Demo123!');
+      10 |     await page.click('button[type="submit"]');
+      11 |     await page.waitForURL(/\/(dashboard|upload)/);
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/upload.spec.ts:8:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/upload-Upload-Flow-E2E-Tes-8b5a9-vigate-through-upload-steps-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/upload-Upload-Flow-E2E-Tes-8b5a9-vigate-through-upload-steps-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/upload-Upload-Flow-E2E-Tes-8b5a9-vigate-through-upload-steps-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tes-8b5a9-vigate-through-upload-steps-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tes-8b5a9-vigate-through-upload-steps-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tes-8b5a9-vigate-through-upload-steps-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Upload Flow E2E Tests › should display image-based preview, not PDF" classname="upload.spec.ts" time="10.422">
+<failure message="upload.spec.ts:79:7 should display image-based preview, not PDF" type="FAILURE">
+<![CDATA[  [chromium] › upload.spec.ts:79:7 › Upload Flow E2E Tests › should display image-based preview, not PDF 
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       6 |     // Login first
+       7 |     await page.goto('http://localhost:5114/login');
+    >  8 |     await page.fill('input[type="email"]', 'demo@signaai.com');
+         |                ^
+       9 |     await page.fill('input[type="password"]', 'Demo123!');
+      10 |     await page.click('button[type="submit"]');
+      11 |     await page.waitForURL(/\/(dashboard|upload)/);
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/upload.spec.ts:8:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/upload-Upload-Flow-E2E-Tes-a515c-image-based-preview-not-PDF-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/upload-Upload-Flow-E2E-Tes-a515c-image-based-preview-not-PDF-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/upload-Upload-Flow-E2E-Tes-a515c-image-based-preview-not-PDF-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tes-a515c-image-based-preview-not-PDF-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tes-a515c-image-based-preview-not-PDF-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tes-a515c-image-based-preview-not-PDF-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Upload Flow E2E Tests › should add and remove recipients" classname="upload.spec.ts" time="10.542">
+<failure message="upload.spec.ts:103:7 should add and remove recipients" type="FAILURE">
+<![CDATA[  [chromium] › upload.spec.ts:103:7 › Upload Flow E2E Tests › should add and remove recipients ─────
+
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="email"]')
+
+
+       6 |     // Login first
+       7 |     await page.goto('http://localhost:5114/login');
+    >  8 |     await page.fill('input[type="email"]', 'demo@signaai.com');
+         |                ^
+       9 |     await page.fill('input[type="password"]', 'Demo123!');
+      10 |     await page.click('button[type="submit"]');
+      11 |     await page.waitForURL(/\/(dashboard|upload)/);
+        at /Users/yahavzamari/Projects/GitHub/SignaAI/signa-app/e2e/upload.spec.ts:8:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/upload-Upload-Flow-E2E-Tes-a36aa-d-add-and-remove-recipients-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/upload-Upload-Flow-E2E-Tes-a36aa-d-add-and-remove-recipients-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/upload-Upload-Flow-E2E-Tes-a36aa-d-add-and-remove-recipients-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tes-a36aa-d-add-and-remove-recipients-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tes-a36aa-d-add-and-remove-recipients-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/upload-Upload-Flow-E2E-Tes-a36aa-d-add-and-remove-recipients-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

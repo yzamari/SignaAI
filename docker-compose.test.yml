@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  backend-test:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5112:5112"
+    environment:
+      - PORT=5112
+      - SECRET_KEY=test-secret-key
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - TWILIO_ACCOUNT_SID=ACb1bd54f64f271b238a948225a0e67efa
+      - TWILIO_AUTH_TOKEN=1a7679082f7ae414de5bd241eae71289
+      - TWILIO_PHONE_NUMBER=+19342273609
+      - FRONTEND_URL=http://localhost:5114
+      - OCR_SERVICE_URL=http://ocr-service-test:5113
+      - GCP_CREDENTIALS_EMAIL=admin@al-ai.net
+      - GCP_CREDENTIALS_PASSWORD=NvnnhF123NvnnhF123
+      - DATABASE_URL=sqlite:///./signaai_test.db
+      - JWT_SECRET_KEY=test-jwt-secret-key
+    volumes:
+      - ./backend:/app
+    command: python main.py
+
+  ocr-service-test:
+    build:
+      context: ./backend/services/ocr_field_detection
+      dockerfile: Dockerfile
+    ports:
+      - "5113:5113"
+    environment:
+      - PORT=5113
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - ./backend/services/ocr_field_detection:/app
+
+  frontend-test:
+    build:
+      context: ./signa-app
+      dockerfile: Dockerfile
+    ports:
+      - "5114:5114"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5112/api/v1
+      - NEXT_PUBLIC_OCR_SERVICE_URL=http://localhost:5113
+    volumes:
+      - ./signa-app:/app
+    command: npm run dev
+
+  postgres-test:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=signaai_test
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-test-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-test-data:
+

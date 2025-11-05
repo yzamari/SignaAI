@@ -1,0 +1,38 @@
+{
+  "demo": {
+    "email": "demo@signaai.com",
+    "password": "Demo123!",
+    "name": "Demo User",
+    "phone": "+972501234567",
+    "role": "sender"
+  },
+  "sender": {
+    "email": "sender@test.com",
+    "password": "Test123!",
+    "name": "Test Sender",
+    "phone": "+1234567890",
+    "role": "sender"
+  },
+  "signer1": {
+    "email": "signer1@test.com",
+    "password": "Test123!",
+    "name": "Test Signer 1",
+    "phone": "+1987654321",
+    "role": "signer"
+  },
+  "signer2": {
+    "email": "signer2@test.com",
+    "password": "Test123!",
+    "name": "Test Signer 2",
+    "phone": "+1122334455",
+    "role": "signer"
+  },
+  "signer3": {
+    "email": "signer3@test.com",
+    "password": "Test123!",
+    "name": "Test Signer 3",
+    "phone": "+1555666777",
+    "role": "signer"
+  }
+}
+

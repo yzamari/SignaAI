@@ -1,0 +1,51 @@
+{
+  "heskem_pdf": {
+    "total_pages": 1,
+    "total_fields": 5,
+    "language": "hebrew",
+    "expected_field_types": ["signature", "text", "date"],
+    "analysis_results": [
+      {
+        "page": 1,
+        "fields": [
+          {
+            "type": "signature",
+            "confidence": 0.85,
+            "bounding_box": {
+              "x": 100,
+              "y": 500,
+              "width": 200,
+              "height": 50
+            },
+            "label": "חתימה"
+          }
+        ]
+      }
+    ]
+  },
+  "english_contract": {
+    "total_pages": 2,
+    "total_fields": 3,
+    "language": "english",
+    "expected_field_types": ["signature", "date"],
+    "analysis_results": [
+      {
+        "page": 1,
+        "fields": [
+          {
+            "type": "signature",
+            "confidence": 0.90,
+            "bounding_box": {
+              "x": 150,
+              "y": 600,
+              "width": 250,
+              "height": 60
+            },
+            "label": "Signature"
+          }
+        ]
+      }
+    ]
+  }
+}
+

@@ -15,7 +15,6 @@ const nextConfig: NextConfig = {
   // Environment-specific configurations
   ...(process.env.NODE_ENV === 'development' && {
     turbopack: {
-      root: '/Users/yahavzamari/SignaAI/signa-app',
       rules: {
         '*.svg': {
           loaders: ['@svgr/webpack'],

@@ -9,6 +9,9 @@ from . import health
 from . import users
 from . import workflows
 from . import sessions
+from . import dashboard
+from . import analytics
+from . import contacts
 
 __all__ = [
     "auth",
@@ -16,5 +19,8 @@ __all__ = [
     "health",
     "users",
     "workflows",
-    "sessions"
+    "sessions",
+    "dashboard",
+    "analytics",
+    "contacts"
 ]
