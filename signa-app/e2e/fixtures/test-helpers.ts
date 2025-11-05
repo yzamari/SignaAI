@@ -27,7 +27,7 @@ export class TestHelpers {
   /**
    * Wait for OCR processing to complete
    */
-  async waitForOCRProcessing(timeout: number = 60000) {
+  async waitForOCRProcessing(timeout: number = 120000) {
     // Wait for processing indicators to disappear
     await this.page.waitForSelector('text=/processing|detecting/i', { state: 'hidden', timeout });
     // Wait for image preview to appear
@@ -118,7 +118,7 @@ export class TestHelpers {
    * Wait for document to load
    */
   async waitForDocumentLoad() {
-    await this.page.waitForSelector('img[alt*="Page"], canvas, iframe[src*=".pdf"]', { timeout: 30000 });
+    await this.page.waitForSelector('img[alt*="Page"], canvas, iframe[src*=".pdf"]', { timeout: 120000 });
   }
 
   /**

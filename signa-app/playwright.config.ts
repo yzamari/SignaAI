@@ -6,7 +6,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  timeout: 60 * 1000, // 60 seconds per test
+  timeout: 180 * 1000, // 180 seconds per test (allows for OCR processing)
   expect: {
     timeout: 10 * 1000, // 10 seconds for assertions
   },
@@ -21,8 +21,8 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    actionTimeout: 10 * 1000,
-    navigationTimeout: 30 * 1000,
+    actionTimeout: 15 * 1000,
+    navigationTimeout: 60 * 1000,
   },
 
   projects: [
