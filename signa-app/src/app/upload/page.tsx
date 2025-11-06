@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, FileText, Users, Clock, Send } from 'lucide-reac
 import Navigation from '@/components/Navigation';
 import QuickUpload from '@/components/QuickUpload';
 import ImageDocumentViewer, { DocumentField, DocumentPage } from '@/components/ImageDocumentViewer';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { useStore } from '@/lib/store';
 import { api } from '@/lib/api';
 import Link from 'next/link';
@@ -387,24 +388,30 @@ export default function UploadPage() {
                         </div>
                         
                         {/* Image Document Viewer with OCR overlays */}
-                        <ImageDocumentViewer
-                          key={`viewer-${documentPages.length}`}
-                          documentId={documentId}
-                          pages={documentPages}
-                          fields={detectedFields}
-                          onFieldsChanged={setDetectedFields}
-                          onFieldClick={(field) => console.log('Field clicked:', field)}
-                          onFieldAdd={(field) => setDetectedFields([...detectedFields, field])}
-                          onFieldRemove={(fieldId) => setDetectedFields(detectedFields.filter(f => f.id !== fieldId))}
-                          onFieldMove={(fieldId, x, y) => {
-                            setDetectedFields(detectedFields.map(f =>
-                              f.id === fieldId ? { ...f, x, y } : f
-                            ));
-                          }}
-                          enableEditing={false}
-                          showOverlays={true}
-                          className="h-[600px]"
-                        />
+                        <ErrorBoundary fallback={
+                          <div className="p-4 text-center">
+                            <p className="text-red-600">Failed to load document viewer</p>
+                          </div>
+                        }>
+                          <ImageDocumentViewer
+                            key={`viewer-${documentPages.length}`}
+                            documentId={documentId}
+                            pages={documentPages}
+                            fields={detectedFields}
+                            onFieldsChanged={setDetectedFields}
+                            onFieldClick={(field) => console.log('Field clicked:', field)}
+                            onFieldAdd={(field) => setDetectedFields([...detectedFields, field])}
+                            onFieldRemove={(fieldId) => setDetectedFields(detectedFields.filter(f => f.id !== fieldId))}
+                            onFieldMove={(fieldId, x, y) => {
+                              setDetectedFields(detectedFields.map(f =>
+                                f.id === fieldId ? { ...f, x, y } : f
+                              ));
+                            }}
+                            enableEditing={false}
+                            showOverlays={true}
+                            className="h-[600px]"
+                          />
+                        </ErrorBoundary>
                       </div>
                       
                       {/* Next Button */}
@@ -586,23 +593,25 @@ export default function UploadPage() {
                           </div>
                         )}
                       </div>
-                      <ImageDocumentViewer
-                        documentId={documentId}
-                        pages={documentPages}
-                        fields={detectedFields}
-                        onFieldsChanged={setDetectedFields}
-                        onFieldClick={(field) => console.log('Field clicked:', field)}
-                        onFieldAdd={(field) => setDetectedFields([...detectedFields, field])}
-                        onFieldRemove={(fieldId) => setDetectedFields(detectedFields.filter(f => f.id !== fieldId))}
-                        onFieldMove={(fieldId, x, y) => {
-                          setDetectedFields(detectedFields.map(f =>
-                            f.id === fieldId ? { ...f, x, y } : f
-                          ));
-                        }}
-                        enableEditing={true}
-                        showOverlays={false}
-                        className="h-[600px]"
-                      />
+                      <ErrorBoundary>
+                        <ImageDocumentViewer
+                          documentId={documentId}
+                          pages={documentPages}
+                          fields={detectedFields}
+                          onFieldsChanged={setDetectedFields}
+                          onFieldClick={(field) => console.log('Field clicked:', field)}
+                          onFieldAdd={(field) => setDetectedFields([...detectedFields, field])}
+                          onFieldRemove={(fieldId) => setDetectedFields(detectedFields.filter(f => f.id !== fieldId))}
+                          onFieldMove={(fieldId, x, y) => {
+                            setDetectedFields(detectedFields.map(f =>
+                              f.id === fieldId ? { ...f, x, y } : f
+                            ));
+                          }}
+                          enableEditing={true}
+                          showOverlays={false}
+                          className="h-[600px]"
+                        />
+                      </ErrorBoundary>
                     </div>
                   )}
 
