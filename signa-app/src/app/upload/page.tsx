@@ -39,26 +39,45 @@ export default function UploadPage() {
   const handleUpload = async (files: File[]) => {
     console.log('Files uploaded:', files.length);
     setUploadedFiles(files);
-    
+
     // Process with OCR if it's a PDF
     if (files[0]?.type === 'application/pdf') {
       try {
+        console.log('[OCR] Starting OCR processing for file:', files[0].name);
         const formData = new FormData();
         formData.append('file', files[0]);
 
-        // Call OCR service directly for now
         const ocrServiceUrl = process.env.NEXT_PUBLIC_OCR_SERVICE_URL || 'http://localhost:5113';
+        console.log('[OCR] OCR service URL:', ocrServiceUrl);
+
+        const startTime = Date.now();
         const response = await fetch(`${ocrServiceUrl}/detect-fields`, {
           method: 'POST',
           body: formData,
         }).catch((err) => {
-          console.error('OCR service fetch error:', err);
+          console.error('[OCR] Fetch error:', err);
+          console.error('[OCR] Error details:', {
+            message: err.message,
+            name: err.name,
+            stack: err.stack
+          });
           return null;
         });
-        
+
+        const fetchTime = Date.now() - startTime;
+        console.log('[OCR] Fetch completed in', fetchTime, 'ms');
+
         if (response && response.ok) {
+          console.log('[OCR] Response OK, status:', response.status);
           const result = await response.json();
-          console.log('Document processing result:', result);
+          console.log('[OCR] Parsed JSON result:', {
+            document_id: result.document_id,
+            total_pages: result.total_pages,
+            total_fields: result.total_fields,
+            processing_time_ms: result.processing_time_ms,
+            has_analysis_results: !!result.analysis_results,
+            analysis_results_length: result.analysis_results?.length || 0
+          });
 
           // Set document ID
           setDocumentId(result.document_id || '');
@@ -68,7 +87,20 @@ export default function UploadPage() {
           const fields: DocumentField[] = [];
 
           if (result.analysis_results) {
-            result.analysis_results.forEach((pageResult: any) => {
+            console.log('[OCR] Processing', result.analysis_results.length, 'pages');
+            result.analysis_results.forEach((pageResult: any, pageIndex: number) => {
+              console.log('[OCR] Page', pageIndex + 1, ':', {
+                page: pageResult.page,
+                width: pageResult.source_image_resolution?.width,
+                height: pageResult.source_image_resolution?.height,
+                has_original_image: !!pageResult.original_image,
+                original_image_length: pageResult.original_image?.length || 0,
+                original_image_prefix: pageResult.original_image?.substring(0, 30),
+                has_overlayed_image: !!pageResult.overlayed_image,
+                overlayed_image_length: pageResult.overlayed_image?.length || 0,
+                fields_count: pageResult.fields?.length || 0
+              });
+
               // Create page data
               pages.push({
                 page_number: pageResult.page,
@@ -102,21 +134,33 @@ export default function UploadPage() {
             });
           }
 
+          console.log('[OCR] Setting state - pages:', pages.length, 'fields:', fields.length);
           setDocumentPages(pages);
+          console.log('[OCR] Document pages state updated');
+
           console.log(`Total fields from OCR: ${fields.length}`);
           console.log('Document pages:', pages.length);
-          console.log('First page data:', pages[0]);
-          // NO FALLBACK FIELDS - only real OCR data
+          if (pages.length > 0) {
+            console.log('First page data:', pages[0]);
+          }
+
           setDetectedFields(fields);
+          console.log('[OCR] Detected fields state updated');
         } else {
-          console.error('Document processing failed');
-          // NO FALLBACK DATA
+          console.error('[OCR] Response not OK:', {
+            response: response,
+            status: response?.status,
+            statusText: response?.statusText
+          });
           setDetectedFields([]);
           setDocumentPages([]);
         }
       } catch (error) {
-        console.error('Document processing failed:', error);
-        // NO FALLBACK DATA - only real OCR data
+        console.error('[OCR] Processing failed with error:', error);
+        console.error('[OCR] Error details:', {
+          message: error instanceof Error ? error.message : String(error),
+          stack: error instanceof Error ? error.stack : undefined
+        });
         setDetectedFields([]);
         setDocumentPages([]);
       }
