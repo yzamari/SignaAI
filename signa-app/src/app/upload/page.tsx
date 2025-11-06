@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, FileText, Users, Clock, Send } from 'lucide-react';
+import { ArrowLeft, ArrowRight, FileText, Users, Clock, Send, Loader2 } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import QuickUpload from '@/components/QuickUpload';
 import ImageDocumentViewer, { DocumentField, DocumentPage } from '@/components/ImageDocumentViewer';
@@ -36,6 +36,8 @@ export default function UploadPage() {
   const [documentPages, setDocumentPages] = useState<DocumentPage[]>([]);
   const [detectedFields, setDetectedFields] = useState<DocumentField[]>([]);
   const [documentId, setDocumentId] = useState<string>('');
+  const [isOCRProcessing, setIsOCRProcessing] = useState(false);
+  const [ocrProgress, setOcrProgress] = useState<string>('');
 
   // Debug effect to monitor documentPages state
   useEffect(() => {
@@ -102,6 +104,8 @@ export default function UploadPage() {
   const handleUpload = async (files: File[]) => {
     console.log('Files uploaded:', files.length);
     setUploadedFiles(files);
+    setIsOCRProcessing(true);
+    setOcrProgress('Uploading document...');
 
     // Process with OCR if it's a PDF
     if (files[0]?.type === 'application/pdf') {
@@ -109,6 +113,8 @@ export default function UploadPage() {
         console.log('[OCR] Starting OCR processing for file:', files[0].name);
         const formData = new FormData();
         formData.append('file', files[0]);
+
+        setOcrProgress('Processing with OCR...');
 
         const ocrServiceUrl = process.env.NEXT_PUBLIC_OCR_SERVICE_URL || 'http://localhost:5113';
         console.log('[OCR] OCR service URL:', ocrServiceUrl);
@@ -132,6 +138,7 @@ export default function UploadPage() {
 
         if (response && response.ok) {
           console.log('[OCR] Response OK, status:', response.status);
+          setOcrProgress('Analyzing document...');
           const result = await response.json();
           console.log('[OCR] Parsed JSON result:', {
             document_id: result.document_id,
@@ -209,12 +216,14 @@ export default function UploadPage() {
 
           setDetectedFields(fields);
           console.log('[OCR] Detected fields state updated');
+          setOcrProgress('Complete!');
         } else {
           console.error('[OCR] Response not OK:', {
             response: response,
             status: response?.status,
             statusText: response?.statusText
           });
+          setOcrProgress('Failed');
           setDetectedFields([]);
           setDocumentPages([]);
         }
@@ -224,8 +233,12 @@ export default function UploadPage() {
           message: error instanceof Error ? error.message : String(error),
           stack: error instanceof Error ? error.stack : undefined
         });
+        setOcrProgress('Failed');
         setDetectedFields([]);
         setDocumentPages([]);
+      } finally {
+        setIsOCRProcessing(false);
+        setTimeout(() => setOcrProgress(''), 2000);  // Clear after 2s
       }
     }
     
@@ -412,6 +425,17 @@ export default function UploadPage() {
                   {/* Document Preview with Fields */}
                   {uploadedFiles.length > 0 && (
                     <>
+                      {/* OCR Processing Indicator */}
+                      {isOCRProcessing && (
+                        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50">
+                          <div className="bg-surface p-6 rounded-lg shadow-lg text-center border border-border">
+                            <Loader2 className="w-12 h-12 animate-spin text-primary mx-auto mb-4" />
+                            <p className="text-lg font-medium">{ocrProgress}</p>
+                            <p className="text-sm text-text-secondary mt-2">This may take a few seconds...</p>
+                          </div>
+                        </div>
+                      )}
+
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
                           <h3 className="text-lg font-medium">Document Preview</h3>
@@ -421,7 +445,7 @@ export default function UploadPage() {
                             </div>
                           )}
                         </div>
-                        
+
                         {/* Image Document Viewer with OCR overlays */}
                         <ErrorBoundary fallback={
                           <div className="p-4 text-center">
