@@ -36,6 +36,33 @@ export default function UploadPage() {
   const [detectedFields, setDetectedFields] = useState<DocumentField[]>([]);
   const [documentId, setDocumentId] = useState<string>('');
 
+  // Debug effect to monitor documentPages state
+  useEffect(() => {
+    console.log('[STATE] documentPages changed:', {
+      length: documentPages.length,
+      pages: documentPages.map(p => ({
+        page_number: p.page_number,
+        has_original: !!p.original_image,
+        has_overlay: !!p.overlay_image,
+        original_length: p.original_image?.length,
+        overlay_length: p.overlay_image?.length
+      }))
+    });
+  }, [documentPages]);
+
+  // Debug effect to monitor detectedFields state
+  useEffect(() => {
+    console.log('[STATE] detectedFields changed:', {
+      length: detectedFields.length,
+      fields: detectedFields.map(f => ({
+        id: f.id,
+        type: f.type,
+        page: f.page,
+        label: f.label
+      }))
+    });
+  }, [detectedFields]);
+
   const handleUpload = async (files: File[]) => {
     console.log('Files uploaded:', files.length);
     setUploadedFiles(files);

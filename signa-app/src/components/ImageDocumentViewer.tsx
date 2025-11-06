@@ -80,11 +80,21 @@ export default function ImageDocumentViewer({
 
   // Debug logging
   useEffect(() => {
-    console.log('ImageDocumentViewer received pages:', pages.length, pages);
+    console.log('[VIEWER] ImageDocumentViewer received pages:', pages.length, pages);
     if (pages.length > 0) {
-      console.log('First page:', pages[0]);
+      console.log('[VIEWER] First page:', {
+        page_number: pages[0].page_number,
+        width: pages[0].width,
+        height: pages[0].height,
+        has_original_image: !!pages[0].original_image,
+        has_overlay_image: !!pages[0].overlay_image,
+        original_image_prefix: pages[0].original_image?.substring(0, 50),
+        overlay_image_prefix: pages[0].overlay_image?.substring(0, 50)
+      });
     }
-  }, [pages]);
+    console.log('[VIEWER] Current page data:', currentPageData);
+    console.log('[VIEWER] Display image:', displayImage?.substring(0, 50));
+  }, [pages, currentPageData, displayImage]);
 
   // Get current page data
   const currentPageData = pages.find(p => p.page_number === currentPage) || pages[0];
