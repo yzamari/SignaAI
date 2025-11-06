@@ -123,4 +123,4 @@ screenshots/
 
 # Documentation builds
 docs/_build/
-docs/.vitepress/dist/
+docs/.vitepress/dist/.env.production
