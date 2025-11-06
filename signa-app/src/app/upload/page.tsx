@@ -64,6 +64,41 @@ export default function UploadPage() {
     });
   }, [detectedFields]);
 
+  // Retry helper for OCR requests
+  async function fetchWithRetry(
+    url: string,
+    options: RequestInit,
+    maxRetries: number = 3,
+    delay: number = 1000
+  ): Promise<Response> {
+    let lastError: Error | null = null;
+
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        console.log(`[RETRY] Attempt ${attempt}/${maxRetries} for ${url}`);
+        const response = await fetch(url, options);
+
+        if (response.ok) {
+          console.log(`[RETRY] Success on attempt ${attempt}`);
+          return response;
+        }
+
+        console.warn(`[RETRY] Attempt ${attempt} failed with status ${response.status}`);
+        lastError = new Error(`HTTP ${response.status}: ${response.statusText}`);
+      } catch (error) {
+        console.error(`[RETRY] Attempt ${attempt} threw error:`, error);
+        lastError = error instanceof Error ? error : new Error(String(error));
+      }
+
+      if (attempt < maxRetries) {
+        console.log(`[RETRY] Waiting ${delay}ms before retry...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+      }
+    }
+
+    throw lastError || new Error('All retry attempts failed');
+  }
+
   const handleUpload = async (files: File[]) => {
     console.log('Files uploaded:', files.length);
     setUploadedFiles(files);
@@ -79,16 +114,16 @@ export default function UploadPage() {
         console.log('[OCR] OCR service URL:', ocrServiceUrl);
 
         const startTime = Date.now();
-        const response = await fetch(`${ocrServiceUrl}/detect-fields`, {
-          method: 'POST',
-          body: formData,
-        }).catch((err) => {
-          console.error('[OCR] Fetch error:', err);
-          console.error('[OCR] Error details:', {
-            message: err.message,
-            name: err.name,
-            stack: err.stack
-          });
+        const response = await fetchWithRetry(
+          `${ocrServiceUrl}/detect-fields`,
+          {
+            method: 'POST',
+            body: formData,
+          },
+          3,  // max retries
+          2000  // 2 second delay between retries
+        ).catch((err) => {
+          console.error('[OCR] All retry attempts failed:', err);
           return null;
         });
 
