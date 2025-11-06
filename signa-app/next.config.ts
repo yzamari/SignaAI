@@ -62,8 +62,8 @@ const nextConfig: NextConfig = {
   
   // Environment variables that should be available on the client side
   env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'https://signaai-backend-691837885081.us-central1.run.app/api/v1',
-    NEXT_PUBLIC_OCR_SERVICE_URL: process.env.NEXT_PUBLIC_OCR_SERVICE_URL || 'https://signaai-backend-691837885081.us-central1.run.app/api/v1/ocr',
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? 'https://signaai-backend-691837885081.us-central1.run.app/api/v1' : 'http://localhost:5112'),
+    NEXT_PUBLIC_OCR_SERVICE_URL: process.env.NEXT_PUBLIC_OCR_SERVICE_URL || (process.env.NODE_ENV === 'production' ? 'https://signaai-backend-691837885081.us-central1.run.app/api/v1/ocr' : 'http://localhost:5113'),
     NEXT_PUBLIC_GEMINI_API_KEY: 'AIzaSyDTLNgJM-p8ueWXzrlcJLlnzPwDc_siIco',
   },
 };

@@ -12,6 +12,14 @@ test.describe('Complete Sender Flow', () => {
   });
 
   test('should complete full document creation workflow', async ({ page }) => {
+    // Capture console logs for debugging
+    page.on('console', msg => {
+      const text = msg.text();
+      if (text.includes('[OCR]') || text.includes('[STATE]') || text.includes('[VIEWER]')) {
+        console.log(`BROWSER: ${text}`);
+      }
+    });
+
     // Step 1: Navigate to upload page
     await page.goto('/upload');
     await expect(page).toHaveURL(/\/upload/);
