@@ -123,4 +123,7 @@ screenshots/
 
 # Documentation builds
 docs/_build/
-docs/.vitepress/dist/.env.production
+docs/.vitepress/dist/
+
+# Production environment (contains sensitive credentials)
+.env.production
